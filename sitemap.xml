@@ -285,4 +285,13 @@
   <url><loc>https://oss.specul.com/en/repos/zep.html</loc></url>
   <url><loc>https://oss.specul.com/en/repos/llama-index.html</loc></url>
   <url><loc>https://oss.specul.com/en/</loc></url>
+  <url><loc>https://oss.specul.com/en/about.html</loc></url>
+  <url><loc>https://oss.specul.com/en/all.html</loc></url>
+  <url><loc>https://oss.specul.com/en/scenes/agent-frameworks.html</loc></url>
+  <url><loc>https://oss.specul.com/en/scenes/eval-observability.html</loc></url>
+  <url><loc>https://oss.specul.com/en/scenes/local-inference.html</loc></url>
+  <url><loc>https://oss.specul.com/en/scenes/multimodal-visual.html</loc></url>
+  <url><loc>https://oss.specul.com/en/scenes/rag-knowledge.html</loc></url>
+  <url><loc>https://oss.specul.com/en/scenes/speech-audio.html</loc></url>
+  <url><loc>https://oss.specul.com/en/scenes/training-finetune.html</loc></url>
 </urlset>
