@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Agent 框架与编排 · 开源 AI 工具库</title>
-  <meta name="description" content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 34 个开源仓库，写清许可、活跃度、适合与不适合。" />
-  <link rel="canonical" href="https://oss.specul.com/scenes/agent-frameworks.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Agent 框架与编排 · 开源 AI 工具库" />
-  <meta property="og:url" content="https://oss.specul.com/scenes/agent-frameworks.html" />
-  <meta property="og:title" content="Agent 框架与编排 · 开源 AI 工具库" />
-  <meta property="og:description" content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 34 个开源仓库，写清许可、活跃度、适合与不适合。" />
-  <meta property="og:locale" content="zh_CN" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/scenes/agent-frameworks.html" />
-  <link rel="alternate" hreflang="en" href="https://oss.specul.com/scenes/agent-frameworks.html?lang=en" />
-  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/scenes/agent-frameworks.html" />
-  <meta name="theme-color" content="#16121f" />
-  <link rel="icon" type="image/png" href="../assets/brand/dandelion-favicon-site.png" />
-  <link rel="apple-touch-icon" href="../assets/brand/dandelion-apple-touch-site.png" />
-  <script src="../brand.js?v=37d1072be69b"></script>
-  <link rel="stylesheet" href="../brand.css?v=37d1072be69b" />
-  <link rel="stylesheet" href="../site.css" />
-  <link rel="stylesheet" href="../oss.css?v=c93c2fbc" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Agent 框架与编排 · 开源 AI 工具库","description":"Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 34 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/agent-frameworks.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Agent 框架与编排 · 开源 AI 工具库</title>
+<meta content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 34 个开源仓库，写清许可、活跃度、适合与不适合。" name="description"/>
+<link href="https://oss.specul.com/scenes/agent-frameworks.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Agent 框架与编排 · 开源 AI 工具库" property="og:site_name"/>
+<meta content="https://oss.specul.com/scenes/agent-frameworks.html" property="og:url"/>
+<meta content="Agent 框架与编排 · 开源 AI 工具库" property="og:title"/>
+<meta content="Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 34 个开源仓库，写清许可、活跃度、适合与不适合。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="en_US" property="og:locale:alternate"/>
+<meta content="#16121f" name="theme-color"/>
+<link href="../assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="../assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="../brand.js?v=37d1072be69b"></script>
+<link href="../brand.css?v=37d1072be69b" rel="stylesheet"/>
+<link href="../site.css" rel="stylesheet"/>
+<link href="../oss.css?v=c93c2fbc" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Agent 框架与编排 · 开源 AI 工具库","description":"Agent 框架与编排：把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。 收录 34 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/agent-frameworks.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -33,494 +30,494 @@
      ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
      （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
 <body class="brand-ambient has-tabbar has-tabbar-1row">
-  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
-  <header class="site-header">
-    <div class="container site-bar">
-      <a class="brand" href="https://specul.com/" title="投机取巧">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
-          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="站点导航">
-        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
-        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
-        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
-        <a href="https://oss.specul.com/" aria-current="page"><span data-zh>开源库</span><span data-en>OSS</span></a>
-        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
-        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
-        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
-      </nav>
-      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+<a class="t-skip" href="#main"><span data-zh="">跳到主要内容</span><span data-en="">Skip to main content</span></a>
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" data-en-name="Speculative Speculation" data-zh-name="投机取巧" id="markName">投机取巧</span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation" id="markSub">Speculative Speculation</span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span data-zh="">作品演示</span><span data-en="">Playground</span></a>
+<a aria-current="page" href="https://oss.specul.com/"><span data-zh="">开源库</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span data-zh="">硬件算力</span><span data-en="">Compute</span></a>
+<a href="https://papers.specul.com/"><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></a>
+<a href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a href="https://nav.specul.com/"><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
-      <span class="nav-tools">
-        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
-        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
-      </span>
-      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+<span class="nav-tools">
+<a aria-label="搜索" class="icon-btn" data-ui-aria-label-en="Search" data-ui-aria-label-zh="搜索" data-ui-title-en="Search all sites" data-ui-title-zh="搜索全站" href="https://specul.com/search.html" title="搜索全站"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="Switch to English" class="icon-btn" href="/en/scenes/agent-frameworks.html" hreflang="en" id="langBtn" lang="en" title="Switch to English">EN</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
            行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
-      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
-  </header>
-  <div class="nav-scrim"></div>
-  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
-    <div class="nav-drawer-h">
-      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
-      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
-    </div>
-    <nav class="nav-drawer-list">
-      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://oss.specul.com/" aria-current="page"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
-    </nav>
-    <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
-      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
-    </div>
-  </aside>
-  <main id="main">
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name"><span data-zh="">投机取巧</span><span data-en="">Speculative Speculation</span></span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation">Speculative Speculation</span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a href="https://specul.com/"><span><span data-zh="">首页</span><span data-en="">Home</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/"><span><span data-zh="">学 AI</span><span data-en="">Learn</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/"><span><span data-zh="">工具</span><span data-en="">Tools</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/"><span><span data-zh="">模型</span><span data-en="">Models</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/"><span><span data-zh="">作品演示</span><span data-en="">Playground</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a aria-current="page" href="https://oss.specul.com/"><span><span data-zh="">开源库</span><span data-en="">OSS</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/"><span><span data-zh="">硬件算力</span><span data-en="">Compute</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/"><span><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/"><span><span data-zh="">链</span><span data-en="">Chain</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/"><span><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p><span data-zh="">内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en="">Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+<nav><a href="https://specul.com/legal.html"><span data-zh="">法律条款</span><span data-en="">Legal terms</span></a></nav>
+</div>
+</aside>
+<main id="main">
 <div class="container">
 <header class="page-head">
-  <p class="eyebrow">OSS · Scene 01</p>
-  <h1><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></h1>
-  <p class="lede"><span data-zh>把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</span><span data-en>Wire models, tools, state and human approval into a workflow that can run, retry and resume. Decide whether you need a state machine before choosing an abstraction.</span></p>
+<p class="eyebrow">OSS · Scene 01</p>
+<h1><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></h1>
+<p class="lede"><span data-zh="">把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</span><span data-en="">Wire models, tools, state and human approval into a workflow that can run, retry and resume. Decide whether you need a state machine before choosing an abstraction.</span></p>
 </header>
 <div class="hero-actions">
-  <a class="btn primary" href="../all.html?scene=agent-frameworks"><span data-zh>看这个场景的全部 →</span><span data-en>See all in this scene →</span></a>
-  <a class="btn" href="../compare.html?ids=langgraph,loopforge,crewai"><span data-zh>并排对比前 3 个</span><span data-en>Compare first 3</span></a>
-  <a class="btn" href="../index.html"><span data-zh>回首页</span><span data-en>Home</span></a>
+<a class="btn primary" href="../all.html?scene=agent-frameworks"><span data-zh="">看这个场景的全部 →</span><span data-en="">See all in this scene →</span></a>
+<a class="btn" href="../compare.html?ids=langgraph,loopforge,crewai"><span data-zh="">并排对比前 3 个</span><span data-en="">Compare first 3</span></a>
+<a class="btn" href="../index.html"><span data-zh="">回首页</span><span data-en="">Home</span></a>
 </div>
-<div class="stats"><div><b>34</b><span><span data-zh>个场景精选</span><span data-en>selected repos</span></span></div><div><b><span data-zh>适合要把多步任务跑成稳定流程的人；只做单轮问答不用上框架。</span><span data-en>For people turning multi-step tasks into reliable workflows; single-turn Q&amp;A does not need a framework.</span></b><span><span data-zh>适合谁</span><span data-en>Who it is for</span></span></div></div>
-<div class="section-head"><h2><span data-zh>怎么选</span><span data-en>How to choose</span></h2></div>
-<div class="note">• <span data-zh>流程有分支、重试、人工确认：先看 LangGraph。</span><span data-en>Branches, retries and human approval: start with LangGraph.</span><br>• <span data-zh>第一次搭多 agent、想快速跑分工：CrewAI 更直观。</span><span data-en>First multi-agent setup with quick role division: CrewAI is easier to grasp.</span><br>• <span data-zh>想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。</span><span data-en>Type safety and long maintenance: Pydantic AI; minimal code execution: smolagents.</span><br><b><span data-zh>不适合：</span><span data-en>Not for: </span></b><span data-zh>不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。</span><span data-en>Do not add multiple agents just for the label. Many tasks need one model and two tools.</span></div>
-<div class="section-head"><h2>34 <span data-zh>个仓库</span><span data-en>repos</span></h2><span class="sub"><span data-zh>按上手顺序，不是按 star</span><span data-en>Ordered by onboarding, not stars</span></span></div>
-<div class="repo-grid"><article class="repo-card" data-id="langgraph" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="langgraph 把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。 python mit 有状态图">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/langgraph.html">LangGraph</a></h3>
-  <p class="repo-owner">langchain-ai / langgraph</p>
-  <p><span data-zh>把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。</span><span data-en>Write an agent as a stateful graph: nodes, edges, checkpoints, human approval and rollback are explicit.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>45.1k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/langgraph.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="loopforge" data-scene="agent-frameworks" data-lang="—" data-license="permissive" data-tier="start" data-search="loopforge 腾讯轻量云开源的云端自进化研发平台：把 coding agent 的交付流程写成可复用的 sop，带云端工作区、多角色共享会话、人工审批门与定时 / issue 自动化。 go mit coding agent sop 自托管">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/loopforge.html">LoopForge</a></h3>
-  <p class="repo-owner">Tencent / LoopForge</p>
-  <p><span data-zh>腾讯轻量云开源的云端自进化研发平台：把 coding agent 的交付流程写成可复用的 SOP，带云端工作区、多角色共享会话、人工审批门与定时 / Issue 自动化。</span><span data-en>Tencent Cloud&#39;s open-source self-hosted delivery platform for coding agents: reusable SOPs with cloud workspaces, shared multi-role sessions, human approval gates and scheduled / issue automation.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>—</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>—</dd></div>
-    <div><dt>最近推送</dt><dd>—</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/loopforge.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="crewai" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="crewai 用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。 python mit 多 agent">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/crewai.html">CrewAI</a></h3>
-  <p class="repo-owner">crewAIInc / crewAI</p>
-  <p><span data-zh>用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</span><span data-en>Build multi-agent teams from roles, tasks and a collaboration process; good for getting division of labour running quickly.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>61.1k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/crewai.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="autogen" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="autogen 微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。 python mit 多 agent">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/autogen.html">AutoGen</a></h3>
-  <p class="repo-owner">microsoft / autogen</p>
-  <p><span data-zh>微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。</span><span data-en>Microsoft’s multi-agent framework built around conversable agents, tool use and distributed execution.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>CC-BY-4.0</dd></div>
-    <div><dt>Stars</dt><dd>61.9k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-12</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/autogen.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="openai-agents" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="openai agents sdk 轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。 python mit 轻量">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/openai-agents.html">OpenAI Agents SDK</a></h3>
-  <p class="repo-owner">openai / openai-agents-python</p>
-  <p><span data-zh>轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。</span><span data-en>A lightweight agent runtime with four core ideas: agents, handoffs, guardrails and traces.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>30.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/openai-agents.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="pydantic-ai" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="light" data-search="pydantic ai 用 pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。 python mit 类型安全">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
-  <h3 class="repo-name"><a href="../repos/pydantic-ai.html">Pydantic AI</a></h3>
-  <p class="repo-owner">pydantic / pydantic-ai</p>
-  <p><span data-zh>用 Pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。</span><span data-en>Write agents with Pydantic’s type system: inputs, outputs and tool arguments are strongly validated.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>21.3k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/pydantic-ai.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="smolagents" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="light" data-search="smolagents hugging face 的极简 agent 库，主打“让模型写代码来调用工具”。 python apache-2.0 代码执行">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-light"><span data-zh>轻量</span><span data-en>Lightweight</span></span></div>
-  <h3 class="repo-name"><a href="../repos/smolagents.html">smolagents</a></h3>
-  <p class="repo-owner">huggingface / smolagents</p>
-  <p><span data-zh>Hugging Face 的极简 agent 库，主打“让模型写代码来调用工具”。</span><span data-en>Hugging Face’s minimal agent library, centred on letting the model write code to call tools.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>30.4k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/smolagents.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="autogpt" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="niche" data-search="autogpt 从自主 agent 实验演化成 agent 平台：可视化构建器、运行环境与模板市场，经典 autogpt 循环也留在仓库里。 python mit / polyform shield 自主 agent">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
-  <h3 class="repo-name"><a href="../repos/autogpt.html">AutoGPT</a></h3>
-  <p class="repo-owner">Significant-Gravitas / AutoGPT</p>
-  <p><span data-zh>从自主 agent 实验演化成 agent 平台：可视化构建器、运行环境与模板市场，经典 AutoGPT 循环也留在仓库里。</span><span data-en>Evolved from the autonomous-agent experiment into an agent platform with a visual builder, runtime and template market; the classic AutoGPT loop remains in the repo.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT + Polyform Shield</dd></div>
-    <div><dt>Stars</dt><dd>188.1k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/autogpt.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="openhands" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="prod" data-search="openhands 能读代码、改代码、跑命令的软件工程 agent，提供 cli、web 界面与沙箱运行时，可接本地或云端模型。 python/ts mit 编程 agent">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/openhands.html">OpenHands</a></h3>
-  <p class="repo-owner">All-Hands-AI / OpenHands</p>
-  <p><span data-zh>能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。</span><span data-en>A software-engineering agent that can read code, edit it and run commands, with CLI, web UI and a sandboxed runtime.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>93.9k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/openhands.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="mem0" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="mem0 给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。 python apache-2.0 记忆层">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/mem0.html">Mem0</a></h3>
-  <p class="repo-owner">mem0ai / mem0</p>
-  <p><span data-zh>给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。</span><span data-en>A long-term memory layer for agents: extract, store and retrieve user preferences and facts, with vector and graph backends.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>69.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/mem0.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="zep" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="zep 面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。 python apache-2.0 记忆服务">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/zep.html">Zep</a></h3>
-  <p class="repo-owner">getzep / zep</p>
-  <p><span data-zh>面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。</span><span data-en>A memory service for agents: session summaries, fact extraction, graph memory and retrieval, with a community edition and cloud service.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>5.0k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-17</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/zep.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="browser-use" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="browser use 让 llm 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。 python mit 浏览器 agent">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/browser-use.html">Browser Use</a></h3>
-  <p class="repo-owner">browser-use / browser-use</p>
-  <p><span data-zh>让 LLM 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。</span><span data-en>Let an LLM operate a web browser: locate elements, click, type, take screenshots and complete multi-step tasks.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>121.5k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/browser-use.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="stagehand" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="niche" data-search="stagehand typescript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。 typescript mit 浏览器自动化">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-niche"><span data-zh>特定场景</span><span data-en>Niche</span></span></div>
-  <h3 class="repo-name"><a href="../repos/stagehand.html">Stagehand</a></h3>
-  <p class="repo-owner">browserbase / stagehand</p>
-  <p><span data-zh>TypeScript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。</span><span data-en>A TypeScript browser-automation framework that mixes natural-language actions with deterministic code actions.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>26.1k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/stagehand.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="openclaw" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="start" data-search="openclaw 把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 gateway 管理会话、技能、定时任务和沙箱执行。 typescript mit 2026 新项目 个人助理 20+ 渠道">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/openclaw.html">OpenClaw</a></h3>
-  <p class="repo-owner">openclaw / openclaw</p>
-  <p><span data-zh>把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。</span><span data-en>Run a personal assistant on your own machine, connected to 20+ chat channels plus native desktop and mobile; one Gateway manages sessions, skills, schedules and sandboxed execution.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>394.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/openclaw.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="deepseek-harness" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="start" data-search="deepseek harness deepseek 的插件化 agent harness（dsh）：一切皆插件，本地 web ui 一条命令起，面向多模型、多工具的长期任务。 typescript mit 2026 新项目 插件化 dsh">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/deepseek-harness.html">DeepSeek Harness</a></h3>
-  <p class="repo-owner">deepseek-ai / deepseek-harness</p>
-  <p><span data-zh>DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。</span><span data-en>DeepSeek’s plugin-based agent harness (dsh): everything is a plugin, a local web UI starts with one command, and it targets long tasks across models and tools.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>284.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/deepseek-harness.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="hermes-agent" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="hermes agent nous research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。 python mit 2026 新项目 自改进 技能记忆">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/hermes-agent.html">Hermes Agent</a></h3>
-  <p class="repo-owner">NousResearch / hermes-agent</p>
-  <p><span data-zh>Nous Research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。</span><span data-en>Nous Research’s self-improving agent: it turns complex tasks into skills, with cross-session memory, parallel sub-agents and a gateway for 20+ messaging channels.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>264.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/hermes-agent.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="opencode" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="prod" data-search="opencode 终端里的开源 coding agent：build / plan 双 agent、lsp 反馈、75+ 模型提供商，另有桌面 beta。 typescript mit 2026 新项目 coding agent tui">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/opencode.html">OpenCode</a></h3>
-  <p class="repo-owner">anomalyco / opencode</p>
-  <p><span data-zh>终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。</span><span data-en>An open-source coding agent in the terminal: separate build and plan agents, LSP feedback, 75+ model providers and a desktop beta.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>228.0k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/opencode.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="orca" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="start" data-search="orca 把 claude code、codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 cli。 typescript mit 2026 新项目 并行 agent worktree">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/orca.html">Orca</a></h3>
-  <p class="repo-owner">stablyai / orca</p>
-  <p><span data-zh>把 Claude Code、Codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 CLI。</span><span data-en>A desktop and cloud console that runs coding agents such as Claude Code and Codex in parallel, each in its own git worktree, with diffs, browser and CLI.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>129.9k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/orca.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="codex-cli" data-scene="agent-frameworks" data-lang="Rust" data-license="permissive" data-tier="prod" data-search="codex cli openai 的本地 coding agent：rust 实现、os 级沙箱、mcp 与云任务交接，适合终端里改代码。 rust apache-2.0 coding agent 沙箱 mcp">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/codex-cli.html">Codex CLI</a></h3>
-  <p class="repo-owner">openai / codex</p>
-  <p><span data-zh>OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</span><span data-en>OpenAI’s local coding agent: Rust binary, OS-level sandbox, MCP and cloud-task handoff, built for editing code in the terminal.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Rust</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>135.9k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/codex-cli.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="dspy" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="dspy 把提示词、检索和工具调用写成可组合的模块，再用优化器按指标自动改提示与示例；不是手写链式调用的封装。 python mit 提示词优化 模块化">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/dspy.html">DSPy</a></h3>
-  <p class="repo-owner">stanfordnlp / dspy</p>
-  <p><span data-zh>把提示词、检索和工具调用写成可组合的模块，再用优化器按指标自动改提示与示例；不是手写链式调用的封装。</span><span data-en>Write prompts, retrieval and tool calls as composable modules, then optimise prompts and examples against a metric instead of hand-tuning chains.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>39.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/dspy.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="semantic-kernel" data-scene="agent-frameworks" data-lang="C#" data-license="permissive" data-tier="prod" data-search="semantic kernel 微软的跨语言 agent/插件编排框架，覆盖 c#、python、java，提供连接器、函数、记忆、流程与 agent 抽象。 c# python java mit 企业集成">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/semantic-kernel.html">Semantic Kernel</a></h3>
-  <p class="repo-owner">microsoft / semantic-kernel</p>
-  <p><span data-zh>微软的跨语言 agent/插件编排框架，覆盖 C#、Python、Java，提供连接器、函数、记忆、流程与 Agent 抽象。</span><span data-en>Microsoft’s cross-language agent and plugin framework for C#, Python and Java, with connectors, functions, memory, processes and agent abstractions.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>C#</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>28.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/semantic-kernel.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="agno" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="agno 轻量高性能的 agent runtime，支持单 agent、团队、workflow，以及 memory、knowledge、tools 和多模态输入。 python typescript apache-2.0 多智能体 内存">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/agno.html">Agno</a></h3>
-  <p class="repo-owner">agno-agi / agno</p>
-  <p><span data-zh>轻量高性能的 agent runtime，支持单 agent、团队、workflow，以及 memory、knowledge、tools 和多模态输入。</span><span data-en>A lightweight, high-performance agent runtime supporting single agents, teams, workflows, memory, knowledge, tools and multimodal input.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>43.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/agno.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="aider" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="aider 终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。 python apache-2.0 编程智能体 cli git">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/aider.html">Aider</a></h3>
-  <p class="repo-owner">Aider-AI / aider</p>
-  <p><span data-zh>终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。</span><span data-en>A pair-programming agent in the terminal that reads and writes a local git repo, produces diffs, commits automatically and uses a repo map to control context.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>50.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-05-22</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/aider.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="cline" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="start" data-search="cline vs code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。 typescript apache-2.0 vs code 编程智能体">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/cline.html">Cline</a></h3>
-  <p class="repo-owner">cline / cline</p>
-  <p><span data-zh>VS Code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。</span><span data-en>An autonomous coding agent inside VS Code that can read files, edit code, run terminal commands and use a browser, asking for approval at each step.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>71.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/cline.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="goose" data-scene="agent-frameworks" data-lang="Rust" data-license="permissive" data-tier="local" data-search="goose block 开源的本地 ai agent，提供 cli 与桌面端，通过 mcp 扩展工具，可接任意 llm。 rust apache-2.0 mcp 桌面智能体 本地">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
-  <h3 class="repo-name"><a href="../repos/goose.html">Goose</a></h3>
-  <p class="repo-owner">block / goose</p>
-  <p><span data-zh>Block 开源的本地 AI agent，提供 CLI 与桌面端，通过 MCP 扩展工具，可接任意 LLM。</span><span data-en>Block’s open-source local AI agent with CLI and desktop apps, MCP-based tool extension and support for any LLM.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Rust</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>56.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/goose.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="google-adk" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="google adk google 的代码优先 python agent 工具包：把工具、会话、记忆、评测与部署放进同一套抽象，可用 gemini 或其它模型。 python apache-2.0 agent 框架 google">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/google-adk.html">Google ADK</a></h3>
-  <p class="repo-owner">google / adk-python</p>
-  <p><span data-zh>Google 的代码优先 Python agent 工具包：把工具、会话、记忆、评测与部署放进同一套抽象，可用 Gemini 或其它模型。</span><span data-en>Google’s code-first Python agent toolkit, bringing tools, sessions, memory, evaluation and deployment into one abstraction, usable with Gemini or other models.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>22.3k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/google-adk.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="letta" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="letta 有状态 agent 平台：把记忆分成 core / recall / archival 三层，连同对话、工具调用与 agent 状态一起持久化，跨会话保留并允许 agent 自己编辑记忆。 python apache-2.0 有状态 agent 长期记忆">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/letta.html">Letta</a></h3>
-  <p class="repo-owner">letta-ai / letta</p>
-  <p><span data-zh>有状态 agent 平台：把记忆分成 core / recall / archival 三层，连同对话、工具调用与 agent 状态一起持久化，跨会话保留并允许 agent 自己编辑记忆。</span><span data-en>A stateful agent platform that splits memory into core, recall and archival tiers, persisting conversations, tool calls and agent state across sessions and allowing the agent to edit its own memory.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>25.5k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-10-18</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/letta.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="open-interpreter" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="open interpreter 让模型在本机写并执行代码的终端 agent：把自然语言任务拆成 shell/python 步骤，读文件、跑命令、看输出再修正；2026 版本转向 kimi k3.1、glm 5.3 等开放权重模型。 python apache-2.0 终端 agent 本地执行">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/open-interpreter.html">Open Interpreter</a></h3>
-  <p class="repo-owner">OpenInterpreter / openinterpreter</p>
-  <p><span data-zh>让模型在本机写并执行代码的终端 agent：把自然语言任务拆成 shell/Python 步骤，读文件、跑命令、看输出再修正；2026 版本转向 Kimi K3.1、GLM 5.3 等开放权重模型。</span><span data-en>A terminal agent that writes and runs code on your machine: it turns natural-language tasks into shell or Python steps, reads files, runs commands, inspects output and corrects itself; the 2026 version moves toward open-weight models such as Kimi K3.1 and GLM 5.3.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>68.9k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/open-interpreter.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="swe-agent" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="swe-agent 把 github issue 变成代码修改的软件工程 agent：通过 agent-computer interface（aci）把搜索、编辑、测试等命令收进受限接口，让模型闭环修 issue。 python mit 编程 agent swe-bench">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/swe-agent.html">SWE-agent</a></h3>
-  <p class="repo-owner">SWE-agent / SWE-agent</p>
-  <p><span data-zh>把 GitHub issue 变成代码修改的软件工程 agent：通过 agent-computer interface（ACI）把搜索、编辑、测试等命令收进受限接口，让模型闭环修 issue。</span><span data-en>A software-engineering agent that turns a GitHub issue into a code change, using an agent-computer interface (ACI) to constrain search, edit and test commands so the model can close the loop on the issue.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>20.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-16</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/swe-agent.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="continue" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="prod" data-search="continue 开源 ide/cli 编程 agent：vs code、jetbrains 插件加 cli，支持本地或云端模型、规则文件、代码索引与自定义工具。 typescript apache-2.0 编程 agent ide">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/continue.html">Continue</a></h3>
-  <p class="repo-owner">continuedev / continue</p>
-  <p><span data-zh>开源 IDE/CLI 编程 agent：VS Code、JetBrains 插件加 CLI，支持本地或云端模型、规则文件、代码索引与自定义工具。</span><span data-en>An open-source IDE and CLI coding agent: VS Code and JetBrains plugins plus a CLI, with local or hosted models, rules files, code indexing and custom tools.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>36.5k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/continue.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="fastmcp" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="fastmcp 用 python 快速搭 mcp 服务器：装饰器声明 tools、resources 与 prompts，自动生成 schema，支持 stdio/http、认证、组合与测试。 python apache-2.0 mcp 工具服务">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/fastmcp.html">FastMCP</a></h3>
-  <p class="repo-owner">jlowin / fastmcp</p>
-  <p><span data-zh>用 Python 快速搭 MCP 服务器：装饰器声明 tools、resources 与 prompts，自动生成 schema，支持 stdio/HTTP、认证、组合与测试。</span><span data-en>Build MCP servers quickly in Python: decorators declare tools, resources and prompts, schemas are generated, with stdio/HTTP transports, auth, composition and testing.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>28.7k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/fastmcp.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="instructor" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="instructor 用 pydantic 模型约束 llm 输出：自动重试、流式部分对象、函数调用/json schema、多 provider 适配，让“返回一个结构体”变可靠。 python mit 结构化输出 pydantic">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/instructor.html">Instructor</a></h3>
-  <p class="repo-owner">567-labs / instructor</p>
-  <p><span data-zh>用 Pydantic 模型约束 LLM 输出：自动重试、流式部分对象、函数调用/JSON schema、多 provider 适配，让“返回一个结构体”变可靠。</span><span data-en>Constrain LLM output with Pydantic models: automatic retries, streaming partial objects, function calling / JSON schema and multi-provider adapters make “return a struct” reliable.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>14.1k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/instructor.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="langchain" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="prod" data-search="langchain llm 应用框架：模型、工具、检索、记忆与 agent 的组件化抽象；langgraph 做有状态编排，langsmith 做观测。 python mit llm 框架 agent">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/langchain.html">LangChain</a></h3>
-  <p class="repo-owner">langchain-ai / langchain</p>
-  <p><span data-zh>LLM 应用框架：模型、工具、检索、记忆与 agent 的组件化抽象；LangGraph 做有状态编排，LangSmith 做观测。</span><span data-en>An LLM application framework: component abstractions for models, tools, retrieval, memory and agents; LangGraph handles stateful orchestration and LangSmith observability.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>150.0k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/langchain.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="steel-browser" data-scene="agent-frameworks" data-lang="—" data-license="permissive" data-tier="prod" data-search="steel browser 给 ai agent 用的开源浏览器 api：会话、cookie、代理、截图、pdf 与动作接口打包成可自托管的沙箱。 typescript apache-2.0 浏览器 agent 沙箱">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/steel-browser.html">Steel Browser</a></h3>
-  <p class="repo-owner">steel-dev / steel-browser</p>
-  <p><span data-zh>给 AI Agent 用的开源浏览器 API：会话、Cookie、代理、截图、PDF 与动作接口打包成可自托管的沙箱。</span><span data-en>An open-source browser API for AI agents: sessions, cookies, proxies, screenshots, PDFs and actions packaged as a self-hostable sandbox.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>—</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>—</dd></div>
-    <div><dt>最近推送</dt><dd>—</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/steel-browser.html">看仓库卡 →</a>
+<div class="stats"><div><b>34</b><span><span data-zh="">个场景精选</span><span data-en="">selected repos</span></span></div><div><b><span data-zh="">适合要把多步任务跑成稳定流程的人；只做单轮问答不用上框架。</span><span data-en="">For people turning multi-step tasks into reliable workflows; single-turn Q&amp;A does not need a framework.</span></b><span><span data-zh="">适合谁</span><span data-en="">Who it is for</span></span></div></div>
+<div class="section-head"><h2><span data-zh="">怎么选</span><span data-en="">How to choose</span></h2></div>
+<div class="note">• <span data-zh="">流程有分支、重试、人工确认：先看 LangGraph。</span><span data-en="">Branches, retries and human approval: start with LangGraph.</span><br/>• <span data-zh="">第一次搭多 agent、想快速跑分工：CrewAI 更直观。</span><span data-en="">First multi-agent setup with quick role division: CrewAI is easier to grasp.</span><br/>• <span data-zh="">想要类型安全、长期维护：Pydantic AI；想要极简代码执行：smolagents。</span><span data-en="">Type safety and long maintenance: Pydantic AI; minimal code execution: smolagents.</span><br/><b><span data-zh="">不适合：</span><span data-en="">Not for: </span></b><span data-zh="">不要为了“多 agent”而多 agent。很多任务一个模型加两个工具就够。</span><span data-en="">Do not add multiple agents just for the label. Many tasks need one model and two tools.</span></div>
+<div class="section-head"><h2>34 <span data-zh="">个仓库</span><span data-en="">repos</span></h2><span class="sub"><span data-zh="">按上手顺序，不是按 star</span><span data-en="">Ordered by onboarding, not stars</span></span></div>
+<div class="repo-grid"><article class="repo-card" data-id="langgraph" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="langgraph 把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。 python mit 有状态图" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/langgraph.html">LangGraph</a></h3>
+<p class="repo-owner">langchain-ai / langgraph</p>
+<p><span data-zh="">把 agent 写成有状态图：节点、边、检查点、人工确认与回滚都能显式表达。</span><span data-en="">Write an agent as a stateful graph: nodes, edges, checkpoints, human approval and rollback are explicit.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>45.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="../repos/langgraph.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="loopforge" data-lang="—" data-license="permissive" data-scene="agent-frameworks" data-search="loopforge 腾讯轻量云开源的云端自进化研发平台：把 coding agent 的交付流程写成可复用的 sop，带云端工作区、多角色共享会话、人工审批门与定时 / issue 自动化。 go mit coding agent sop 自托管" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/loopforge.html">LoopForge</a></h3>
+<p class="repo-owner">Tencent / LoopForge</p>
+<p><span data-zh="">腾讯轻量云开源的云端自进化研发平台：把 coding agent 的交付流程写成可复用的 SOP，带云端工作区、多角色共享会话、人工审批门与定时 / Issue 自动化。</span><span data-en="">Tencent Cloud's open-source self-hosted delivery platform for coding agents: reusable SOPs with cloud workspaces, shared multi-role sessions, human approval gates and scheduled / issue automation.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>—</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>—</dd></div>
+<div><dt>最近推送</dt><dd>—</dd></div>
+</dl>
+<a class="repo-link" href="../repos/loopforge.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="crewai" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="crewai 用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。 python mit 多 agent" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/crewai.html">CrewAI</a></h3>
+<p class="repo-owner">crewAIInc / crewAI</p>
+<p><span data-zh="">用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</span><span data-en="">Build multi-agent teams from roles, tasks and a collaboration process; good for getting division of labour running quickly.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>61.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="../repos/crewai.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="autogen" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="autogen 微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。 python mit 多 agent" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/autogen.html">AutoGen</a></h3>
+<p class="repo-owner">microsoft / autogen</p>
+<p><span data-zh="">微软的多 agent 框架，强调可对话的 agent、工具调用与分布式运行。</span><span data-en="">Microsoft’s multi-agent framework built around conversable agents, tool use and distributed execution.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>CC-BY-4.0</dd></div>
+<div><dt>Stars</dt><dd>61.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-12</dd></div>
+</dl>
+<a class="repo-link" href="../repos/autogen.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="openai-agents" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="openai agents sdk 轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。 python mit 轻量" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/openai-agents.html">OpenAI Agents SDK</a></h3>
+<p class="repo-owner">openai / openai-agents-python</p>
+<p><span data-zh="">轻量的 agent 运行时：agent、handoff、guardrail、trace 四个核心概念。</span><span data-en="">A lightweight agent runtime with four core ideas: agents, handoffs, guardrails and traces.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>30.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/openai-agents.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="pydantic-ai" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="pydantic ai 用 pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。 python mit 类型安全" data-tier="light">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-light"><span data-zh="">轻量</span><span data-en="">Lightweight</span></span></div>
+<h3 class="repo-name"><a href="../repos/pydantic-ai.html">Pydantic AI</a></h3>
+<p class="repo-owner">pydantic / pydantic-ai</p>
+<p><span data-zh="">用 Pydantic 的类型系统写 agent：输入、输出、工具参数都强类型校验。</span><span data-en="">Write agents with Pydantic’s type system: inputs, outputs and tool arguments are strongly validated.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>21.3k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/pydantic-ai.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="smolagents" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="smolagents hugging face 的极简 agent 库，主打“让模型写代码来调用工具”。 python apache-2.0 代码执行" data-tier="light">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-light"><span data-zh="">轻量</span><span data-en="">Lightweight</span></span></div>
+<h3 class="repo-name"><a href="../repos/smolagents.html">smolagents</a></h3>
+<p class="repo-owner">huggingface / smolagents</p>
+<p><span data-zh="">Hugging Face 的极简 agent 库，主打“让模型写代码来调用工具”。</span><span data-en="">Hugging Face’s minimal agent library, centred on letting the model write code to call tools.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>30.4k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="../repos/smolagents.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="autogpt" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="autogpt 从自主 agent 实验演化成 agent 平台：可视化构建器、运行环境与模板市场，经典 autogpt 循环也留在仓库里。 python mit / polyform shield 自主 agent" data-tier="niche">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-niche"><span data-zh="">特定场景</span><span data-en="">Niche</span></span></div>
+<h3 class="repo-name"><a href="../repos/autogpt.html">AutoGPT</a></h3>
+<p class="repo-owner">Significant-Gravitas / AutoGPT</p>
+<p><span data-zh="">从自主 agent 实验演化成 agent 平台：可视化构建器、运行环境与模板市场，经典 AutoGPT 循环也留在仓库里。</span><span data-en="">Evolved from the autonomous-agent experiment into an agent platform with a visual builder, runtime and template market; the classic AutoGPT loop remains in the repo.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT + Polyform Shield</dd></div>
+<div><dt>Stars</dt><dd>188.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/autogpt.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="openhands" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="openhands 能读代码、改代码、跑命令的软件工程 agent，提供 cli、web 界面与沙箱运行时，可接本地或云端模型。 python/ts mit 编程 agent" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/openhands.html">OpenHands</a></h3>
+<p class="repo-owner">All-Hands-AI / OpenHands</p>
+<p><span data-zh="">能读代码、改代码、跑命令的软件工程 agent，提供 CLI、Web 界面与沙箱运行时，可接本地或云端模型。</span><span data-en="">A software-engineering agent that can read code, edit it and run commands, with CLI, web UI and a sandboxed runtime.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>93.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/openhands.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="mem0" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="mem0 给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。 python apache-2.0 记忆层" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/mem0.html">Mem0</a></h3>
+<p class="repo-owner">mem0ai / mem0</p>
+<p><span data-zh="">给 agent 加长期记忆层：抽取、存储、检索用户偏好与事实，支持向量/图存储后端。</span><span data-en="">A long-term memory layer for agents: extract, store and retrieve user preferences and facts, with vector and graph backends.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>69.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="../repos/mem0.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="zep" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="zep 面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。 python apache-2.0 记忆服务" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/zep.html">Zep</a></h3>
+<p class="repo-owner">getzep / zep</p>
+<p><span data-zh="">面向 agent 的记忆服务：会话摘要、事实抽取、图记忆与检索，提供社区版和云服务。</span><span data-en="">A memory service for agents: session summaries, fact extraction, graph memory and retrieval, with a community edition and cloud service.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>5.0k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-17</dd></div>
+</dl>
+<a class="repo-link" href="../repos/zep.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="browser-use" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="browser use 让 llm 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。 python mit 浏览器 agent" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/browser-use.html">Browser Use</a></h3>
+<p class="repo-owner">browser-use / browser-use</p>
+<p><span data-zh="">让 LLM 通过浏览器操作网页：元素定位、点击、输入、截图与多步任务。</span><span data-en="">Let an LLM operate a web browser: locate elements, click, type, take screenshots and complete multi-step tasks.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>121.5k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="../repos/browser-use.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="stagehand" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="stagehand typescript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。 typescript mit 浏览器自动化" data-tier="niche">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-niche"><span data-zh="">特定场景</span><span data-en="">Niche</span></span></div>
+<h3 class="repo-name"><a href="../repos/stagehand.html">Stagehand</a></h3>
+<p class="repo-owner">browserbase / stagehand</p>
+<p><span data-zh="">TypeScript 浏览器自动化框架：自然语言动作与代码动作混用，面向可控的网页 agent。</span><span data-en="">A TypeScript browser-automation framework that mixes natural-language actions with deterministic code actions.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>26.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/stagehand.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="openclaw" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="openclaw 把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 gateway 管理会话、技能、定时任务和沙箱执行。 typescript mit 2026 新项目 个人助理 20+ 渠道" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/openclaw.html">OpenClaw</a></h3>
+<p class="repo-owner">openclaw / openclaw</p>
+<p><span data-zh="">把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。</span><span data-en="">Run a personal assistant on your own machine, connected to 20+ chat channels plus native desktop and mobile; one Gateway manages sessions, skills, schedules and sandboxed execution.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>394.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/openclaw.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="deepseek-harness" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="deepseek harness deepseek 的插件化 agent harness（dsh）：一切皆插件，本地 web ui 一条命令起，面向多模型、多工具的长期任务。 typescript mit 2026 新项目 插件化 dsh" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/deepseek-harness.html">DeepSeek Harness</a></h3>
+<p class="repo-owner">deepseek-ai / deepseek-harness</p>
+<p><span data-zh="">DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。</span><span data-en="">DeepSeek’s plugin-based agent harness (dsh): everything is a plugin, a local web UI starts with one command, and it targets long tasks across models and tools.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>284.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="../repos/deepseek-harness.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="hermes-agent" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="hermes agent nous research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。 python mit 2026 新项目 自改进 技能记忆" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/hermes-agent.html">Hermes Agent</a></h3>
+<p class="repo-owner">NousResearch / hermes-agent</p>
+<p><span data-zh="">Nous Research 的自改进 agent：把复杂任务沉淀成技能，带跨会话记忆、子 agent 并行和 20+ 消息渠道网关。</span><span data-en="">Nous Research’s self-improving agent: it turns complex tasks into skills, with cross-session memory, parallel sub-agents and a gateway for 20+ messaging channels.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>264.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/hermes-agent.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="opencode" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="opencode 终端里的开源 coding agent：build / plan 双 agent、lsp 反馈、75+ 模型提供商，另有桌面 beta。 typescript mit 2026 新项目 coding agent tui" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/opencode.html">OpenCode</a></h3>
+<p class="repo-owner">anomalyco / opencode</p>
+<p><span data-zh="">终端里的开源 coding agent：build / plan 双 agent、LSP 反馈、75+ 模型提供商，另有桌面 beta。</span><span data-en="">An open-source coding agent in the terminal: separate build and plan agents, LSP feedback, 75+ model providers and a desktop beta.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>228.0k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/opencode.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="orca" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="orca 把 claude code、codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 cli。 typescript mit 2026 新项目 并行 agent worktree" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/orca.html">Orca</a></h3>
+<p class="repo-owner">stablyai / orca</p>
+<p><span data-zh="">把 Claude Code、Codex 等 coding agent 并行跑在各自 git worktree 里的桌面/云端控制台，带 diff、浏览器与 CLI。</span><span data-en="">A desktop and cloud console that runs coding agents such as Claude Code and Codex in parallel, each in its own git worktree, with diffs, browser and CLI.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>129.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/orca.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="codex-cli" data-lang="Rust" data-license="permissive" data-scene="agent-frameworks" data-search="codex cli openai 的本地 coding agent：rust 实现、os 级沙箱、mcp 与云任务交接，适合终端里改代码。 rust apache-2.0 coding agent 沙箱 mcp" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/codex-cli.html">Codex CLI</a></h3>
+<p class="repo-owner">openai / codex</p>
+<p><span data-zh="">OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</span><span data-en="">OpenAI’s local coding agent: Rust binary, OS-level sandbox, MCP and cloud-task handoff, built for editing code in the terminal.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Rust</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>135.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/codex-cli.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="dspy" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="dspy 把提示词、检索和工具调用写成可组合的模块，再用优化器按指标自动改提示与示例；不是手写链式调用的封装。 python mit 提示词优化 模块化" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/dspy.html">DSPy</a></h3>
+<p class="repo-owner">stanfordnlp / dspy</p>
+<p><span data-zh="">把提示词、检索和工具调用写成可组合的模块，再用优化器按指标自动改提示与示例；不是手写链式调用的封装。</span><span data-en="">Write prompts, retrieval and tool calls as composable modules, then optimise prompts and examples against a metric instead of hand-tuning chains.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>39.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/dspy.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="semantic-kernel" data-lang="C#" data-license="permissive" data-scene="agent-frameworks" data-search="semantic kernel 微软的跨语言 agent/插件编排框架，覆盖 c#、python、java，提供连接器、函数、记忆、流程与 agent 抽象。 c# python java mit 企业集成" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/semantic-kernel.html">Semantic Kernel</a></h3>
+<p class="repo-owner">microsoft / semantic-kernel</p>
+<p><span data-zh="">微软的跨语言 agent/插件编排框架，覆盖 C#、Python、Java，提供连接器、函数、记忆、流程与 Agent 抽象。</span><span data-en="">Microsoft’s cross-language agent and plugin framework for C#, Python and Java, with connectors, functions, memory, processes and agent abstractions.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>C#</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>28.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/semantic-kernel.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="agno" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="agno 轻量高性能的 agent runtime，支持单 agent、团队、workflow，以及 memory、knowledge、tools 和多模态输入。 python typescript apache-2.0 多智能体 内存" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/agno.html">Agno</a></h3>
+<p class="repo-owner">agno-agi / agno</p>
+<p><span data-zh="">轻量高性能的 agent runtime，支持单 agent、团队、workflow，以及 memory、knowledge、tools 和多模态输入。</span><span data-en="">A lightweight, high-performance agent runtime supporting single agents, teams, workflows, memory, knowledge, tools and multimodal input.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>43.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/agno.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="aider" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="aider 终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。 python apache-2.0 编程智能体 cli git" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/aider.html">Aider</a></h3>
+<p class="repo-owner">Aider-AI / aider</p>
+<p><span data-zh="">终端里的结对编程 agent，直接读写本地 git 仓库、生成 diff、自动提交，并用 repo map 控制上下文。</span><span data-en="">A pair-programming agent in the terminal that reads and writes a local git repo, produces diffs, commits automatically and uses a repo map to control context.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>50.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-05-22</dd></div>
+</dl>
+<a class="repo-link" href="../repos/aider.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="cline" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="cline vs code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。 typescript apache-2.0 vs code 编程智能体" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/cline.html">Cline</a></h3>
+<p class="repo-owner">cline / cline</p>
+<p><span data-zh="">VS Code 内的 autonomous coding agent，能读文件、改代码、跑终端命令、用浏览器，并在每步请求确认。</span><span data-en="">An autonomous coding agent inside VS Code that can read files, edit code, run terminal commands and use a browser, asking for approval at each step.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>71.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/cline.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="goose" data-lang="Rust" data-license="permissive" data-scene="agent-frameworks" data-search="goose block 开源的本地 ai agent，提供 cli 与桌面端，通过 mcp 扩展工具，可接任意 llm。 rust apache-2.0 mcp 桌面智能体 本地" data-tier="local">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-local"><span data-zh="">本地优先</span><span data-en="">Local-first</span></span></div>
+<h3 class="repo-name"><a href="../repos/goose.html">Goose</a></h3>
+<p class="repo-owner">block / goose</p>
+<p><span data-zh="">Block 开源的本地 AI agent，提供 CLI 与桌面端，通过 MCP 扩展工具，可接任意 LLM。</span><span data-en="">Block’s open-source local AI agent with CLI and desktop apps, MCP-based tool extension and support for any LLM.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Rust</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>56.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/goose.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="google-adk" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="google adk google 的代码优先 python agent 工具包：把工具、会话、记忆、评测与部署放进同一套抽象，可用 gemini 或其它模型。 python apache-2.0 agent 框架 google" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/google-adk.html">Google ADK</a></h3>
+<p class="repo-owner">google / adk-python</p>
+<p><span data-zh="">Google 的代码优先 Python agent 工具包：把工具、会话、记忆、评测与部署放进同一套抽象，可用 Gemini 或其它模型。</span><span data-en="">Google’s code-first Python agent toolkit, bringing tools, sessions, memory, evaluation and deployment into one abstraction, usable with Gemini or other models.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>22.3k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/google-adk.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="letta" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="letta 有状态 agent 平台：把记忆分成 core / recall / archival 三层，连同对话、工具调用与 agent 状态一起持久化，跨会话保留并允许 agent 自己编辑记忆。 python apache-2.0 有状态 agent 长期记忆" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/letta.html">Letta</a></h3>
+<p class="repo-owner">letta-ai / letta</p>
+<p><span data-zh="">有状态 agent 平台：把记忆分成 core / recall / archival 三层，连同对话、工具调用与 agent 状态一起持久化，跨会话保留并允许 agent 自己编辑记忆。</span><span data-en="">A stateful agent platform that splits memory into core, recall and archival tiers, persisting conversations, tool calls and agent state across sessions and allowing the agent to edit its own memory.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>25.5k</dd></div>
+<div><dt>最近推送</dt><dd>2026-10-18</dd></div>
+</dl>
+<a class="repo-link" href="../repos/letta.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="open-interpreter" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="open interpreter 让模型在本机写并执行代码的终端 agent：把自然语言任务拆成 shell/python 步骤，读文件、跑命令、看输出再修正；2026 版本转向 kimi k3.1、glm 5.3 等开放权重模型。 python apache-2.0 终端 agent 本地执行" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/open-interpreter.html">Open Interpreter</a></h3>
+<p class="repo-owner">OpenInterpreter / openinterpreter</p>
+<p><span data-zh="">让模型在本机写并执行代码的终端 agent：把自然语言任务拆成 shell/Python 步骤，读文件、跑命令、看输出再修正；2026 版本转向 Kimi K3.1、GLM 5.3 等开放权重模型。</span><span data-en="">A terminal agent that writes and runs code on your machine: it turns natural-language tasks into shell or Python steps, reads files, runs commands, inspects output and corrects itself; the 2026 version moves toward open-weight models such as Kimi K3.1 and GLM 5.3.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>68.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/open-interpreter.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="swe-agent" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="swe-agent 把 github issue 变成代码修改的软件工程 agent：通过 agent-computer interface（aci）把搜索、编辑、测试等命令收进受限接口，让模型闭环修 issue。 python mit 编程 agent swe-bench" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/swe-agent.html">SWE-agent</a></h3>
+<p class="repo-owner">SWE-agent / SWE-agent</p>
+<p><span data-zh="">把 GitHub issue 变成代码修改的软件工程 agent：通过 agent-computer interface（ACI）把搜索、编辑、测试等命令收进受限接口，让模型闭环修 issue。</span><span data-en="">A software-engineering agent that turns a GitHub issue into a code change, using an agent-computer interface (ACI) to constrain search, edit and test commands so the model can close the loop on the issue.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>20.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-16</dd></div>
+</dl>
+<a class="repo-link" href="../repos/swe-agent.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="continue" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="continue 开源 ide/cli 编程 agent：vs code、jetbrains 插件加 cli，支持本地或云端模型、规则文件、代码索引与自定义工具。 typescript apache-2.0 编程 agent ide" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/continue.html">Continue</a></h3>
+<p class="repo-owner">continuedev / continue</p>
+<p><span data-zh="">开源 IDE/CLI 编程 agent：VS Code、JetBrains 插件加 CLI，支持本地或云端模型、规则文件、代码索引与自定义工具。</span><span data-en="">An open-source IDE and CLI coding agent: VS Code and JetBrains plugins plus a CLI, with local or hosted models, rules files, code indexing and custom tools.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>36.5k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/continue.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="fastmcp" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="fastmcp 用 python 快速搭 mcp 服务器：装饰器声明 tools、resources 与 prompts，自动生成 schema，支持 stdio/http、认证、组合与测试。 python apache-2.0 mcp 工具服务" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/fastmcp.html">FastMCP</a></h3>
+<p class="repo-owner">jlowin / fastmcp</p>
+<p><span data-zh="">用 Python 快速搭 MCP 服务器：装饰器声明 tools、resources 与 prompts，自动生成 schema，支持 stdio/HTTP、认证、组合与测试。</span><span data-en="">Build MCP servers quickly in Python: decorators declare tools, resources and prompts, schemas are generated, with stdio/HTTP transports, auth, composition and testing.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>28.7k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/fastmcp.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="instructor" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="instructor 用 pydantic 模型约束 llm 输出：自动重试、流式部分对象、函数调用/json schema、多 provider 适配，让“返回一个结构体”变可靠。 python mit 结构化输出 pydantic" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/instructor.html">Instructor</a></h3>
+<p class="repo-owner">567-labs / instructor</p>
+<p><span data-zh="">用 Pydantic 模型约束 LLM 输出：自动重试、流式部分对象、函数调用/JSON schema、多 provider 适配，让“返回一个结构体”变可靠。</span><span data-en="">Constrain LLM output with Pydantic models: automatic retries, streaming partial objects, function calling / JSON schema and multi-provider adapters make “return a struct” reliable.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>14.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/instructor.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="langchain" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="langchain llm 应用框架：模型、工具、检索、记忆与 agent 的组件化抽象；langgraph 做有状态编排，langsmith 做观测。 python mit llm 框架 agent" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/langchain.html">LangChain</a></h3>
+<p class="repo-owner">langchain-ai / langchain</p>
+<p><span data-zh="">LLM 应用框架：模型、工具、检索、记忆与 agent 的组件化抽象；LangGraph 做有状态编排，LangSmith 做观测。</span><span data-en="">An LLM application framework: component abstractions for models, tools, retrieval, memory and agents; LangGraph handles stateful orchestration and LangSmith observability.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>150.0k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/langchain.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="steel-browser" data-lang="—" data-license="permissive" data-scene="agent-frameworks" data-search="steel browser 给 ai agent 用的开源浏览器 api：会话、cookie、代理、截图、pdf 与动作接口打包成可自托管的沙箱。 typescript apache-2.0 浏览器 agent 沙箱" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/steel-browser.html">Steel Browser</a></h3>
+<p class="repo-owner">steel-dev / steel-browser</p>
+<p><span data-zh="">给 AI Agent 用的开源浏览器 API：会话、Cookie、代理、截图、PDF 与动作接口打包成可自托管的沙箱。</span><span data-en="">An open-source browser API for AI agents: sessions, cookies, proxies, screenshots, PDFs and actions packaged as a self-hostable sandbox.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>—</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>—</dd></div>
+<div><dt>最近推送</dt><dd>—</dd></div>
+</dl>
+<a class="repo-link" href="../repos/steel-browser.html">看仓库卡 →</a>
 </article></div>
 <div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
 <div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/langgraph.html">LangGraph</a></th><th><a href="../repos/loopforge.html">LoopForge</a></th><th><a href="../repos/crewai.html">CrewAI</a></th><th><a href="../repos/autogen.html">AutoGen</a></th><th><a href="../repos/openai-agents.html">OpenAI Agents SDK</a></th><th><a href="../repos/pydantic-ai.html">Pydantic AI</a></th><th><a href="../repos/smolagents.html">smolagents</a></th><th><a href="../repos/autogpt.html">AutoGPT</a></th><th><a href="../repos/openhands.html">OpenHands</a></th><th><a href="../repos/mem0.html">Mem0</a></th><th><a href="../repos/zep.html">Zep</a></th><th><a href="../repos/browser-use.html">Browser Use</a></th><th><a href="../repos/stagehand.html">Stagehand</a></th><th><a href="../repos/openclaw.html">OpenClaw</a></th><th><a href="../repos/deepseek-harness.html">DeepSeek Harness</a></th><th><a href="../repos/hermes-agent.html">Hermes Agent</a></th><th><a href="../repos/opencode.html">OpenCode</a></th><th><a href="../repos/orca.html">Orca</a></th><th><a href="../repos/codex-cli.html">Codex CLI</a></th><th><a href="../repos/dspy.html">DSPy</a></th><th><a href="../repos/semantic-kernel.html">Semantic Kernel</a></th><th><a href="../repos/agno.html">Agno</a></th><th><a href="../repos/aider.html">Aider</a></th><th><a href="../repos/cline.html">Cline</a></th><th><a href="../repos/goose.html">Goose</a></th><th><a href="../repos/google-adk.html">Google ADK</a></th><th><a href="../repos/letta.html">Letta</a></th><th><a href="../repos/open-interpreter.html">Open Interpreter</a></th><th><a href="../repos/swe-agent.html">SWE-agent</a></th><th><a href="../repos/continue.html">Continue</a></th><th><a href="../repos/fastmcp.html">FastMCP</a></th><th><a href="../repos/instructor.html">Instructor</a></th><th><a href="../repos/langchain.html">LangChain</a></th><th><a href="../repos/steel-browser.html">Steel Browser</a></th></tr></thead><tbody>
@@ -533,46 +530,46 @@
 <tr><td>不适合</td><td>只做单轮问答或简单 prompt 链，没必要上图。</td><td>只做一次性小改动或单轮问答，SOP 编排会显得过重。</td><td>需要极细粒度状态控制或复杂回滚，图结构更合适。</td><td>版本迭代快，接口变化需要跟。</td><td>需要复杂图状态与持久化，LangGraph 更合适。</td><td>想要大量现成多 agent 角色模板，CrewAI 更直接。</td><td>生产级权限与沙箱要自己补。</td><td>平台目录（autogpt_platform）是 Polyform Shield 许可，商用与分发前要逐条读，不要按 MIT 一刀切。</td><td>复杂仓库仍会失败，不能替代代码审查与 CI。</td><td>只是单轮问答、没有跨会话记忆需求，不必加一层。</td><td>只需要短期对话缓存，用普通上下文窗口就够。</td><td>不需要登录、只读 API 就能完成的任务，优先用 API。</td><td>纯 Python 团队先用 Browser Use 更顺。</td><td>不要不加沙箱、allowlist 和凭据隔离就给它整机 shell / 文件权限；它能做的事很多，误操作也能很大。</td><td>目前是 developer preview，README 明确说会有 breaking changes；不要直接当生产稳定版。</td><td>自动生成的技能不等于可靠技能；上生产前要人工审一遍，不然错误会沉淀成“经验”。</td><td>GUI 优先的人会更喜欢 IDE 插件或桌面 agent；TUI 需要一点终端习惯。</td><td>它不自带模型额度；底层还是 Claude Code、Codex、OpenCode 等 agent 的订阅/额度。</td><td>对 OpenAI 模型与账号体系最顺；换其他 provider 的能力与体验不保证对齐。</td><td>只想开箱即用聊天界面，或不愿意为任务准备训练/验证样本的团队。</td><td>只跑一个 Python demo，框架抽象会显得重。</td><td>需要复杂图状态机、细粒度人工确认和回滚的长流程，LangGraph 更合适。</td><td>需要图形 IDE、多 agent 并行或大规模团队权限管理的场景。</td><td>纯终端、CI 或远程无头环境；它是 IDE 插件形态。</td><td>需要集中式沙箱、多人权限和审计的生产环境，仍要自己做隔离。</td><td>不是低代码拖拽平台，要写 Python。</td><td>记忆越多不等于越准，错误记忆会被反复放大，需要清理与审计。</td><td>默认拥有本机执行权限，误删/越权风险高；生产必须容器化与只读挂载。</td><td>真实仓库仍会失败，不能替代 CI 与人工 review。</td><td>不是 CI/CD 或代码托管平台；复杂重构仍要人看。</td><td>不是 MCP 客户端；仍要 Claude、Cursor 或其他 host 来连。</td><td>不是 agent 框架；多步工具编排仍要 LangGraph 等。</td><td>抽象层多，简单调用可能被过度封装。</td><td>只做一次性抓取，Firecrawl / 静态 HTTP 更省。</td></tr>
 </tbody></table></div>
 </div>
-  </main>
-  <footer class="site-footer foot-single">
-    <div class="container foot-line">
-      <div class="foot-brand">
-        <span class="foot-brand-main">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="foot-copy"><span data-zh>投机取巧 · specul.com</span><span data-en>Specul · specul.com</span></span>
-        </span>
-        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a><span class="sep" aria-hidden="true">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a></span>
-      </div>
-      <nav class="foot-sites" aria-label="Footer site links">
-        <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://demos.specul.com/"><span data-zh>演示</span><span data-en>Demos</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://oss.specul.com/"><span data-zh>开源</span><span data-en>OSS</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://hardware.specul.com/"><span data-zh>算力</span><span data-en>Compute</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-      </nav>
-      <nav class="foot-legal" aria-label="Legal and corrections">
-        <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私</span><span data-en>Privacy</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
-      </nav>
-    </div>
-  </footer>
-<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
-    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
-    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
-    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
-    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
-    <a href="https://oss.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
-    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
-    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+</main>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy"><span data-zh="">投机取巧 · specul.com</span><span data-en="">Specul · specul.com</span></span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh="">内容 CC BY 4.0</span><span data-en="">Content CC BY 4.0</span></a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh="">代码 MIT</span><span data-en="">Code MIT</span></a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank"><span data-zh="">源码</span><span data-en="">Source</span></a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/"><span data-zh="">演示</span><span data-en="">Demos</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/"><span data-zh="">开源</span><span data-en="">OSS</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/"><span data-zh="">算力</span><span data-en="">Compute</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/"><span data-zh="">论文</span><span data-en="">Papers</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/"><span data-zh="">导航</span><span data-en="">Directory</span></a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/legal.html"><span data-zh="">法律</span><span data-en="">Legal</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/legal.html#s8"><span data-zh="">隐私</span><span data-en="">Privacy</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/correct.html"><span data-zh="">纠错</span><span data-en="">Corrections</span></a>
+</nav>
+</div>
+</footer>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a href="https://specul.com/"><span aria-hidden="true" class="ti">◎</span><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span aria-hidden="true" class="ti">▤</span><span data-zh="">学AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span aria-hidden="true" class="ti">◈</span><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span aria-hidden="true" class="ti">▦</span><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span aria-hidden="true" class="ti">▷</span><span data-zh="">演示</span><span data-en="">Demos</span></a>
+<a aria-current="page" href="https://oss.specul.com/"><span aria-hidden="true" class="ti">▧</span><span data-zh="">开源</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span aria-hidden="true" class="ti">▣</span><span data-zh="">算力</span><span data-en="">Chips</span></a>
+<a href="https://papers.specul.com/"><span aria-hidden="true" class="ti">▥</span><span data-zh="">论文</span><span data-en="">Papers</span></a>
+<a href="https://chain.specul.com/"><span aria-hidden="true" class="ti">◇</span><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a data-nav-group="external" href="https://nav.specul.com/"><span aria-hidden="true" class="ti">↗</span><span data-zh="">导航</span><span data-en="">Nav</span></a>
 </nav>
 </body>
 </html>

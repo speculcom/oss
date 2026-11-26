@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Evaluation &amp; Observability | OSS</title>
+<meta content="Measure quality and trace failures: choose tools that record prompts, retrieval, tool calls, latency and cost." name="description"/>
+<link href="https://oss.specul.com/en/scenes/eval-observability.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="OSS" property="og:site_name"/>
+<meta content="https://oss.specul.com/en/scenes/eval-observability.html" property="og:url"/>
+<meta content="Evaluation &amp; Observability | OSS" property="og:title"/>
+<meta content="Measure quality and trace failures: choose tools that record prompts, retrieval, tool calls, latency and cost." property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="zh_CN" property="og:locale:alternate"/>
+<meta content="#16121f" name="theme-color"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<link href="/oss.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Evaluation & Observability | OSS","description":"Measure quality and trace failures: choose tools that record prompts, retrieval, tool calls, latency and cost.","url":"https://oss.specul.com/en/scenes/eval-observability.html","inLanguage":"en","isPartOf":{"@type":"WebSite","url":"https://oss.specul.com/en/scenes/eval-observability.html"}}</script>
+<meta content="Evaluation &amp; Observability | OSS" name="twitter:title"/><meta content="Measure quality and trace failures: choose tools that record prompts, retrieval, tool calls, latency and cost." name="twitter:description"/><meta content="noindex,follow" name="robots"/></head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<a class="t-skip" href="#main">Skip to main content</a>
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a aria-current="page" href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/scenes/eval-observability.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a aria-current="page" href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<main id="main">
+<div class="container">
+<header class="page-head">
+<p class="eyebrow">OSS · Scene 06</p>
+<h1>Evaluation &amp; Observability</h1>
+<p class="lede">Measure quality and trace failures: choose tools that record prompts, retrieval, tool calls, latency and cost.</p>
+</header>
+<div class="hero-actions">
+<a class="btn primary" href="/en/all.html?scene=eval-observability">See all in this scene →</a>
+<a class="btn" href="/en/compare.html?ids=langfuse,ragas,deepeval">Compare first 3</a>
+<a class="btn" href="../index.html">Home</a>
+</div>
+<div class="stats"><div><b>12</b><span>selected repos</span></div><div><b>For teams shipping agents or RAG and needing regression tests.</b><span>Who it is for</span></div></div>
+<div class="section-head"><h2>How to choose</h2></div>
+<div class="note">• Start with a small labelled set and a failure taxonomy.<br/>• Trace every step: Langfuse and similar tools; offline scoring: promptfoo.<br/>• Track cost and latency beside quality; a score alone is not a release gate.<br/><b>Not for: </b>Do not optimise a dashboard before defining what a failure looks like.</div>
+<div class="section-head"><h2>12 repos</h2><span class="sub">Ordered by onboarding, not stars</span></div>
+<div class="repo-grid"><article class="repo-card" data-id="langfuse" data-lang="TypeScript" data-license="other" data-scene="eval-observability" data-search="langfuse llm 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。 typescript/python mit 可观测" data-tier="prod">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/langfuse.html">Langfuse</a></h3>
+<p class="repo-owner">langfuse / langfuse</p>
+<p>Tracing, evaluation, prompt management and cost analytics for LLM applications, available self-hosted.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>NOASSERTION</dd></div>
+<div><dt>Stars</dt><dd>37.6k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/langfuse.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="ragas" data-lang="Python" data-license="permissive" data-scene="eval-observability" data-search="ragas rag 评测库：检索相关性、答案忠实度、上下文召回等指标。 python apache-2.0 rag 评测" data-tier="start">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-start">Start here</span></div>
+<h3 class="repo-name"><a href="/en/repos/ragas.html">Ragas</a></h3>
+<p class="repo-owner">explodinggradients / ragas</p>
+<p>A RAG evaluation library covering retrieval relevance, answer faithfulness and context recall.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>16.4k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-14</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/ragas.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="deepeval" data-lang="Python" data-license="permissive" data-scene="eval-observability" data-search="deepeval 像写单元测试一样测 llm：断言、指标、数据集与 ci 集成。 python apache-2.0 单元测试" data-tier="start">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-start">Start here</span></div>
+<h3 class="repo-name"><a href="/en/repos/deepeval.html">DeepEval</a></h3>
+<p class="repo-owner">confident-ai / deepeval</p>
+<p>Test LLMs like unit tests: assertions, metrics, datasets and CI integration.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>19.5k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/deepeval.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="promptfoo" data-lang="TypeScript" data-license="permissive" data-scene="eval-observability" data-search="promptfoo prompt / 模型 / agent 的对比评测工具，配置化跑多模型多 prompt。 typescript mit prompt 评测" data-tier="start">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-start">Start here</span></div>
+<h3 class="repo-name"><a href="/en/repos/promptfoo.html">promptfoo</a></h3>
+<p class="repo-owner">promptfoo / promptfoo</p>
+<p>A config-driven comparison harness for prompts, models and agents across many providers.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>27.4k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/promptfoo.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="phoenix" data-lang="Python" data-license="other" data-scene="eval-observability" data-search="arize phoenix 开源 llm 追踪与评测平台，基于 opentelemetry，带可视化与数据集管理。 python apache-2.0 otel" data-tier="prod">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/phoenix.html">Arize Phoenix</a></h3>
+<p class="repo-owner">Arize-ai / phoenix</p>
+<p>Open-source LLM tracing and evaluation on OpenTelemetry, with visual exploration and dataset management.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>NOASSERTION</dd></div>
+<div><dt>Stars</dt><dd>12.3k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/phoenix.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="inspect-ai" data-lang="Python" data-license="permissive" data-scene="eval-observability" data-search="inspect ai 英国 ai 安全研究院的评测框架，适合做严谨、可复现的任务评测。 python mit 评测框架" data-tier="niche">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-niche">Niche</span></div>
+<h3 class="repo-name"><a href="/en/repos/inspect-ai.html">Inspect AI</a></h3>
+<p class="repo-owner">UKGovernmentBEIS / inspect_ai</p>
+<p>An evaluation framework from the UK AI Safety Institute for rigorous, reproducible task evaluation.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>3.3k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/inspect-ai.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="trulens" data-lang="Python" data-license="permissive" data-scene="eval-observability" data-search="trulens llm 应用与 agent 的评测、追踪工具，基于 opentelemetry，把检索、生成与评分串成可解释的 trace。 python mit 可解释评分" data-tier="prod">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/trulens.html">TruLens</a></h3>
+<p class="repo-owner">truera / trulens</p>
+<p>Evaluation and tracing for LLM apps and agents on OpenTelemetry, connecting retrieval, generation and feedback into an explainable trace.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>3.7k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/trulens.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="evidently" data-lang="Jupyter Notebook" data-license="permissive" data-scene="eval-observability" data-search="evidently 数据与模型监控框架：数据漂移、质量、llm 输出评测都能出报表、测试与带告警的看板。 python apache-2.0 监控" data-tier="prod">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/evidently.html">Evidently</a></h3>
+<p class="repo-owner">evidentlyai / evidently</p>
+<p>A data and model monitoring framework: drift, quality and LLM output checks with reports, tests and alerting dashboards.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Jupyter Notebook</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>8.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-09-29</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/evidently.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="giskard" data-lang="Python" data-license="permissive" data-scene="eval-observability" data-search="giskard 开源 ml/llm 测试与红队工具：扫描提示注入、越权、幻觉与 rag 质量问题，并生成可复现测试。 python apache-2.0 红队" data-tier="niche">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-niche">Niche</span></div>
+<h3 class="repo-name"><a href="/en/repos/giskard.html">Giskard</a></h3>
+<p class="repo-owner">Giskard-AI / giskard-oss</p>
+<p>Open-source ML and LLM testing and red-teaming: scan prompt injection, authorization, hallucination and RAG quality issues, then generate reproducible tests.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>6.0k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/giskard.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="lm-evaluation-harness" data-lang="Python" data-license="permissive" data-scene="eval-observability" data-search="lm evaluation harness 标准 llm 评测框架，覆盖数百任务、few-shot、loglikelihood 与生成式指标，支持 hf、vllm 和 api 后端。 python mit 评测 benchmark 复现" data-tier="prod">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/lm-evaluation-harness.html">LM Evaluation Harness</a></h3>
+<p class="repo-owner">EleutherAI / lm-evaluation-harness</p>
+<p>A standard LLM evaluation harness covering hundreds of tasks, few-shot settings, log-likelihood and generative metrics, with HF, vLLM and API backends.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>14.5k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-04</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/lm-evaluation-harness.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="swe-bench" data-lang="Python" data-license="permissive" data-scene="eval-observability" data-search="swe-bench 软件工程 agent 的基准与评测 harness：从真实 github issue 与对应 pr 构造任务，测模型能否生成通过测试的 patch。 python mit agent 评测 swe-bench" data-tier="prod">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/swe-bench.html">SWE-bench</a></h3>
+<p class="repo-owner">SWE-bench / SWE-bench</p>
+<p>A software-engineering benchmark and evaluation harness built from real GitHub issues and their pull requests, testing whether a model can produce a patch that passes the tests.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>6.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-09-18</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/swe-bench.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="mlflow" data-lang="Python" data-license="permissive" data-scene="eval-observability" data-search="mlflow 实验跟踪、模型注册、打包与部署的开源平台：记录参数、指标与产物，比较 run，注册模型版本并部署 rest/grpc 服务。 python apache-2.0 实验跟踪 模型注册" data-tier="prod">
+<div class="repo-top"><span class="badge">Evaluation &amp; Observability</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/mlflow.html">MLflow</a></h3>
+<p class="repo-owner">mlflow / mlflow</p>
+<p>An open-source platform for experiment tracking, model registry, packaging and deployment: log params, metrics and artifacts, compare runs, register model versions and serve over REST/gRPC.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>28.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/mlflow.html">看仓库卡 →</a>
+</article></div>
+<div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
+<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="/en/repos/langfuse.html">Langfuse</a></th><th><a href="/en/repos/ragas.html">Ragas</a></th><th><a href="/en/repos/deepeval.html">DeepEval</a></th><th><a href="/en/repos/promptfoo.html">promptfoo</a></th><th><a href="/en/repos/phoenix.html">Arize Phoenix</a></th><th><a href="/en/repos/inspect-ai.html">Inspect AI</a></th><th><a href="/en/repos/trulens.html">TruLens</a></th><th><a href="/en/repos/evidently.html">Evidently</a></th><th><a href="/en/repos/giskard.html">Giskard</a></th><th><a href="/en/repos/lm-evaluation-harness.html">LM Evaluation Harness</a></th><th><a href="/en/repos/swe-bench.html">SWE-bench</a></th><th><a href="/en/repos/mlflow.html">MLflow</a></th></tr></thead><tbody>
+<tr><td>上手层</td><td>生产可用</td><td>先试这个</td><td>先试这个</td><td>先试这个</td><td>生产可用</td><td>特定场景</td><td>生产可用</td><td>生产可用</td><td>特定场景</td><td>生产可用</td><td>生产可用</td><td>生产可用</td></tr>
+<tr><td>语言</td><td>TypeScript</td><td>Python</td><td>Python</td><td>TypeScript</td><td>Python</td><td>Python</td><td>Python</td><td>Jupyter Notebook</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td></tr>
+<tr><td>许可</td><td>NOASSERTION</td><td>Apache-2.0</td><td>Apache-2.0</td><td>MIT</td><td>NOASSERTION</td><td>MIT</td><td>MIT</td><td>Apache-2.0</td><td>Apache-2.0</td><td>MIT</td><td>MIT</td><td>Apache-2.0</td></tr>
+<tr><td>Stars</td><td>37.6k</td><td>16.4k</td><td>19.5k</td><td>27.4k</td><td>12.3k</td><td>3.3k</td><td>3.7k</td><td>8.1k</td><td>6.0k</td><td>14.5k</td><td>6.2k</td><td>28.9k</td></tr>
+<tr><td>最近推送</td><td>2026-11-19</td><td>2026-11-14</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-18</td><td>2026-11-20</td><td>2026-09-29</td><td>2026-11-20</td><td>2026-11-04</td><td>2026-09-18</td><td>2026-11-20</td></tr>
+<tr><td>适合</td><td>trace、session、评分、数据集一体化。</td><td>指标定义清楚，适合做 RAG 回归。</td><td>pytest 风格，工程团队容易上手。</td><td>YAML 配置，跑对比矩阵快。</td><td>OTel 原生，trace 可导出到其他后端。</td><td>评测任务、模型、评分器结构清楚。</td><td>反馈函数会给出评分理由，定位是检索错还是生成错。</td><td>传统 ML 的数据漂移与 LLM 文本指标在同一套报告里。</td><td>把安全扫描与质量评测放在同一套 API，适合上线前门禁。</td><td>论文里的 MMLU、HellaSwag、GSM8K 数字大多能用它复现，统一 prompt 与 metric 减少口径漂移。</td><td>任务来自真实仓库与测试，比合成题更接近工程。</td><td>把“哪次实验、什么参数、什么指标”固定成可查询记录。</td></tr>
+<tr><td>不适合</td><td>只做单次脚本调试，日志就够。</td><td>不是固定题集，跨项目分数不可直接比。</td><td>模型评委指标需要自己校准。</td><td>复杂 agent 轨迹评测要自己补。</td><td>极简日志需求，Langfuse 或普通日志就够。</td><td>偏研究/评测，不适合做产品观测。</td><td>偏评测与追踪，不是完整日志/告警/成本平台。</td><td>不是 agent 轨迹级评测平台，复杂多步任务要看 TruLens/Langfuse。</td><td>扫描通过不等于安全，不能替代人工红队与权限设计。</td><td>需要 agent 多轮交互、工具调用或私有业务打分；harness 更偏静态基准。</td><td>不是产品榜单；分数受 scaffold、重试预算与模型版本影响。</td><td>不是专门的 LLM 可观测平台；prompt/trace 要接 Langfuse 或 Phoenix。</td></tr>
+</tbody></table></div>
+</div>
+</main>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a aria-current="page" href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+</body>
+</html>

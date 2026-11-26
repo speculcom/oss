@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>开源 AI 工具库 — 自己拿下来跑 · Specul</title>
-  <meta name="description" content="136 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
-  <link rel="canonical" href="https://oss.specul.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="开源 AI 工具库" />
-  <meta property="og:url" content="https://oss.specul.com/" />
-  <meta property="og:title" content="开源 AI 工具库 — 自己拿下来跑 · Specul" />
-  <meta property="og:description" content="136 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" />
-  <meta property="og:locale" content="zh_CN" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/" />
-  <link rel="alternate" hreflang="en" href="https://oss.specul.com/?lang=en" />
-  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/" />
-  <meta name="theme-color" content="#16121f" />
-  <link rel="icon" type="image/png" href="assets/brand/dandelion-favicon-site.png" />
-  <link rel="apple-touch-icon" href="assets/brand/dandelion-apple-touch-site.png" />
-  <script src="brand.js?v=37d1072be69b"></script>
-  <link rel="stylesheet" href="brand.css?v=37d1072be69b" />
-  <link rel="stylesheet" href="site.css" />
-  <link rel="stylesheet" href="oss.css?v=c93c2fbc" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"开源 AI 工具库 — 自己拿下来跑 · Specul","description":"136 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。","url":"https://oss.specul.com/","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>开源 AI 工具库 — 自己拿下来跑 · Specul</title>
+<meta content="136 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" name="description"/>
+<link href="https://oss.specul.com/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="开源 AI 工具库" property="og:site_name"/>
+<meta content="https://oss.specul.com/" property="og:url"/>
+<meta content="开源 AI 工具库 — 自己拿下来跑 · Specul" property="og:title"/>
+<meta content="136 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="en_US" property="og:locale:alternate"/>
+<meta content="#16121f" name="theme-color"/>
+<link href="assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="brand.js?v=37d1072be69b"></script>
+<link href="brand.css?v=37d1072be69b" rel="stylesheet"/>
+<link href="site.css" rel="stylesheet"/>
+<link href="oss.css?v=c93c2fbc" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"开源 AI 工具库 — 自己拿下来跑 · Specul","description":"136 个 AI 开源仓库，按 Agent、RAG、本地推理、多模态、语音、评测、训练与微调 7 个场景整理；写清许可、活跃度、依赖、上手成本与“不适合”。","url":"https://oss.specul.com/","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -33,290 +30,290 @@
      ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
      （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
 <body class="brand-ambient has-tabbar has-tabbar-1row">
-  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
-  <header class="site-header">
-    <div class="container site-bar">
-      <a class="brand" href="https://specul.com/" title="投机取巧">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
-          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="站点导航">
-        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
-        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
-        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
-        <a href="https://oss.specul.com/" aria-current="page"><span data-zh>开源库</span><span data-en>OSS</span></a>
-        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
-        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
-        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
-      </nav>
-      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+<a class="t-skip" href="#main"><span data-zh="">跳到主要内容</span><span data-en="">Skip to main content</span></a>
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" data-en-name="Speculative Speculation" data-zh-name="投机取巧" id="markName">投机取巧</span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation" id="markSub">Speculative Speculation</span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span data-zh="">作品演示</span><span data-en="">Playground</span></a>
+<a aria-current="page" href="https://oss.specul.com/"><span data-zh="">开源库</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span data-zh="">硬件算力</span><span data-en="">Compute</span></a>
+<a href="https://papers.specul.com/"><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></a>
+<a href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a href="https://nav.specul.com/"><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
-      <span class="nav-tools">
-        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
-        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
-      </span>
-      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+<span class="nav-tools">
+<a aria-label="搜索" class="icon-btn" data-ui-aria-label-en="Search" data-ui-aria-label-zh="搜索" data-ui-title-en="Search all sites" data-ui-title-zh="搜索全站" href="https://specul.com/search.html" title="搜索全站"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="Switch to English" class="icon-btn" href="/en/" hreflang="en" id="langBtn" lang="en" title="Switch to English">EN</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
            行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
-      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
-  </header>
-  <div class="nav-scrim"></div>
-  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
-    <div class="nav-drawer-h">
-      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
-      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
-    </div>
-    <nav class="nav-drawer-list">
-      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://oss.specul.com/" aria-current="page"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
-    </nav>
-    <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
-      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
-    </div>
-  </aside>
-  <main id="main">
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name"><span data-zh="">投机取巧</span><span data-en="">Speculative Speculation</span></span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation">Speculative Speculation</span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a href="https://specul.com/"><span><span data-zh="">首页</span><span data-en="">Home</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/"><span><span data-zh="">学 AI</span><span data-en="">Learn</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/"><span><span data-zh="">工具</span><span data-en="">Tools</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/"><span><span data-zh="">模型</span><span data-en="">Models</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/"><span><span data-zh="">作品演示</span><span data-en="">Playground</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a aria-current="page" href="https://oss.specul.com/"><span><span data-zh="">开源库</span><span data-en="">OSS</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/"><span><span data-zh="">硬件算力</span><span data-en="">Compute</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/"><span><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/"><span><span data-zh="">链</span><span data-en="">Chain</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/"><span><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p><span data-zh="">内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en="">Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+<nav><a href="https://specul.com/legal.html"><span data-zh="">法律条款</span><span data-en="">Legal terms</span></a></nav>
+</div>
+</aside>
+<main id="main">
 <div class="container">
 <header class="site-hero">
-  <h1><span data-zh>开源 AI</span><span data-en>Open-source AI</span></h1>
-  <p class="site-hero-deck"><span data-zh>136 个仓库，按场景、许可和能不能自己跑筛。</span><span data-en>136 repositories, filtered by scene, licence and whether you can run it yourself.</span></p>
+<h1><span data-zh="">开源 AI</span><span data-en="">Open-source AI</span></h1>
+<p class="site-hero-deck"><span data-zh="">136 个仓库，按场景、许可和能不能自己跑筛。</span><span data-en="">136 repositories, filtered by scene, licence and whether you can run it yourself.</span></p>
 </header>
-<form class="oss-search" action="all.html" method="get">
-  <input type="search" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-zh="搜仓库：RAG、视频、语音、评测……" data-ui-placeholder-en="Search repos: RAG, video, speech, evals…" aria-label="搜索开源仓库" data-ui-aria-label-zh="搜索开源仓库" data-ui-aria-label-en="Search open-source repositories" />
-  <button type="submit"><span data-zh>搜索</span><span data-en>Search</span></button>
+<form action="all.html" class="oss-search" method="get">
+<input aria-label="搜索开源仓库" data-ui-aria-label-en="Search open-source repositories" data-ui-aria-label-zh="搜索开源仓库" data-ui-placeholder-en="Search repos: RAG, video, speech, evals…" data-ui-placeholder-zh="搜仓库：RAG、视频、语音、评测……" name="q" placeholder="搜仓库：RAG、视频、语音、评测……" type="search"/>
+<button type="submit"><span data-zh="">搜索</span><span data-en="">Search</span></button>
 </form>
 <div class="hero-actions">
-  <a class="btn primary" href="all.html">看全部仓库 →</a>
-  <a class="btn" href="compare.html">并排对比</a>
-  <a class="btn" href="about.html">怎么挑仓库</a>
+<a class="btn primary" href="all.html">看全部仓库 →</a>
+<a class="btn" href="compare.html">并排对比</a>
+<a class="btn" href="about.html">怎么挑仓库</a>
 </div>
 <div class="section-head"><h2>按场景找</h2><span class="sub">七个场景，挑一个你手上的活</span></div>
 <div class="scene-grid"><a class="scene-card scene-1" href="scenes/agent-frameworks.html">
-  <span class="no">01 · 34 <span data-zh>个仓库</span><span data-en>repos</span></span>
-  <h3><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></h3>
-  <p><span data-zh>把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</span><span data-en>Wire models, tools, state and human approval into a workflow that can run, retry and resume. Decide whether you need a state machine before choosing an abstraction.</span></p>
-  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
+<span class="no">01 · 34 <span data-zh="">个仓库</span><span data-en="">repos</span></span>
+<h3><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></h3>
+<p><span data-zh="">把模型、工具、状态和人工确认串成一条可执行、可恢复的流程。先想清楚要不要状态机，再决定用哪一层抽象。</span><span data-en="">Wire models, tools, state and human approval into a workflow that can run, retry and resume. Decide whether you need a state machine before choosing an abstraction.</span></p>
+<span class="more"><span data-zh="">进入场景 →</span><span data-en="">Open scene →</span></span>
 </a><a class="scene-card scene-2" href="scenes/rag-knowledge.html">
-  <span class="no">02 · 20 <span data-zh>个仓库</span><span data-en>repos</span></span>
-  <h3><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></h3>
-  <p><span data-zh>从文档解析、切分、索引、检索到引用，缺一段都会让答案看起来对、实际不可靠。先定问题，再定语料与评测。</span><span data-en>Retrieval quality depends on chunking, recall, permissions and evaluation; choose a stack whose sources you can inspect.</span></p>
-  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
+<span class="no">02 · 20 <span data-zh="">个仓库</span><span data-en="">repos</span></span>
+<h3><span data-zh="">RAG 与知识库</span><span data-en="">RAG &amp; Knowledge Bases</span></h3>
+<p><span data-zh="">从文档解析、切分、索引、检索到引用，缺一段都会让答案看起来对、实际不可靠。先定问题，再定语料与评测。</span><span data-en="">Retrieval quality depends on chunking, recall, permissions and evaluation; choose a stack whose sources you can inspect.</span></p>
+<span class="more"><span data-zh="">进入场景 →</span><span data-en="">Open scene →</span></span>
 </a><a class="scene-card scene-3" href="scenes/local-inference.html">
-  <span class="no">03 · 15 <span data-zh>个仓库</span><span data-en>repos</span></span>
-  <h3><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></h3>
-  <p><span data-zh>从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。</span><span data-en>Run models on hardware you control: check quantisation, memory fit, concurrency and serving API before choosing.</span></p>
-  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
+<span class="no">03 · 15 <span data-zh="">个仓库</span><span data-en="">repos</span></span>
+<h3><span data-zh="">本地推理与部署</span><span data-en="">Local Inference &amp; Serving</span></h3>
+<p><span data-zh="">从单机一条命令，到多卡高吞吐服务，差的是批处理、显存、量化和运维。先按并发与延迟选层，不要一上来就上集群。</span><span data-en="">Run models on hardware you control: check quantisation, memory fit, concurrency and serving API before choosing.</span></p>
+<span class="more"><span data-zh="">进入场景 →</span><span data-en="">Open scene →</span></span>
 </a><a class="scene-card scene-4" href="scenes/multimodal-visual.html">
-  <span class="no">04 · 19 <span data-zh>个仓库</span><span data-en>repos</span></span>
-  <h3><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></h3>
-  <p><span data-zh>图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。</span><span data-en>Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms.</span></p>
-  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
+<span class="no">04 · 19 <span data-zh="">个仓库</span><span data-en="">repos</span></span>
+<h3><span data-zh="">多模态与图像视频</span><span data-en="">Multimodal, Image &amp; Video</span></h3>
+<p><span data-zh="">图像与视频生成的工具分两层：工作流界面（ComfyUI / WebUI）和代码库（Diffusers）。先看你要创作还是集成。</span><span data-en="">Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms.</span></p>
+<span class="more"><span data-zh="">进入场景 →</span><span data-en="">Open scene →</span></span>
 </a><a class="scene-card scene-5" href="scenes/speech-audio.html">
-  <span class="no">05 · 16 <span data-zh>个仓库</span><span data-en>repos</span></span>
-  <h3><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></h3>
-  <p><span data-zh>语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。</span><span data-en>Transcribe, synthesise and separate speakers: check language coverage, latency, streaming and data handling.</span></p>
-  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
+<span class="no">05 · 16 <span data-zh="">个仓库</span><span data-en="">repos</span></span>
+<h3><span data-zh="">语音与音频</span><span data-en="">Speech &amp; Audio</span></h3>
+<p><span data-zh="">语音分识别（ASR）与合成（TTS）两条链。先看语言、实时性、说话人分离和授权，再选模型。</span><span data-en="">Transcribe, synthesise and separate speakers: check language coverage, latency, streaming and data handling.</span></p>
+<span class="more"><span data-zh="">进入场景 →</span><span data-en="">Open scene →</span></span>
 </a><a class="scene-card scene-6" href="scenes/eval-observability.html">
-  <span class="no">06 · 12 <span data-zh>个仓库</span><span data-en>repos</span></span>
-  <h3><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></h3>
-  <p><span data-zh>上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。</span><span data-en>Measure quality and trace failures: choose tools that record prompts, retrieval, tool calls, latency and cost.</span></p>
-  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
+<span class="no">06 · 12 <span data-zh="">个仓库</span><span data-en="">repos</span></span>
+<h3><span data-zh="">评测与可观测</span><span data-en="">Evaluation &amp; Observability</span></h3>
+<p><span data-zh="">上线前要能测，上线后要能看。评测管“答得对不对”，可观测管“为什么慢、为什么贵、哪一步失败”。</span><span data-en="">Measure quality and trace failures: choose tools that record prompts, retrieval, tool calls, latency and cost.</span></p>
+<span class="more"><span data-zh="">进入场景 →</span><span data-en="">Open scene →</span></span>
 </a><a class="scene-card scene-7" href="scenes/training-finetune.html">
-  <span class="no">07 · 20 <span data-zh>个仓库</span><span data-en>repos</span></span>
-  <h3><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></h3>
-  <p><span data-zh>把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。</span><span data-en>Turn a base model into your own: from single-GPU QLoRA to multi-node RLHF, start with VRAM, parallelism and reproducibility.</span></p>
-  <span class="more"><span data-zh>进入场景 →</span><span data-en>Open scene →</span></span>
+<span class="no">07 · 20 <span data-zh="">个仓库</span><span data-en="">repos</span></span>
+<h3><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></h3>
+<p><span data-zh="">把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。</span><span data-en="">Turn a base model into your own: from single-GPU QLoRA to multi-node RLHF, start with VRAM, parallelism and reproducibility.</span></p>
+<span class="more"><span data-zh="">进入场景 →</span><span data-en="">Open scene →</span></span>
 </a></div>
 <div class="section-head"><h2>先试这几个</h2><a href="all.html">看全部 →</a></div>
-<div class="repo-grid"><article class="repo-card" data-id="crewai" data-scene="agent-frameworks" data-lang="Python" data-license="permissive" data-tier="start" data-search="crewai 用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。 python mit 多 agent">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="repos/crewai.html">CrewAI</a></h3>
-  <p class="repo-owner">crewAIInc / crewAI</p>
-  <p><span data-zh>用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</span><span data-en>Build multi-agent teams from roles, tasks and a collaboration process; good for getting division of labour running quickly.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>61.1k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/crewai.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="ragflow" data-scene="rag-knowledge" data-lang="Go" data-license="permissive" data-tier="start" data-search="ragflow 带文档解析、切分、检索与引用的 rag 平台，适合把一套知识库跑起来。 python apache-2.0 rag 平台">
-  <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="repos/ragflow.html">RAGFlow</a></h3>
-  <p class="repo-owner">infiniflow / ragflow</p>
-  <p><span data-zh>带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。</span><span data-en>A RAG platform with document parsing, chunking, retrieval and citations, built to get a knowledge base running.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Go</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>94.4k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/ragflow.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="ollama" data-scene="local-inference" data-lang="Go" data-license="permissive" data-tier="start" data-search="ollama 一条命令拉模型、跑本地推理，自带模型库与 openai 兼容 api。 go mit 本地推理">
-  <div class="repo-top"><span class="badge"><span data-zh>本地推理与部署</span><span data-en>Local Inference &amp; Serving</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="repos/ollama.html">Ollama</a></h3>
-  <p class="repo-owner">ollama / ollama</p>
-  <p><span data-zh>一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</span><span data-en>Pull and run local models with one command, with a built-in model library and an OpenAI-compatible API.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Go</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>187.6k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/ollama.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="comfyui" data-scene="multimodal-visual" data-lang="Python" data-license="strong" data-tier="start" data-search="comfyui 节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。 python gpl-3.0 节点工作流">
-  <div class="repo-top"><span class="badge"><span data-zh>多模态与图像视频</span><span data-en>Multimodal, Image &amp; Video</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="repos/comfyui.html">ComfyUI</a></h3>
-  <p class="repo-owner">comfyanonymous / ComfyUI</p>
-  <p><span data-zh>节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。</span><span data-en>A node-based image and video generation workflow that wires models, samplers, ControlNet and post-processing into a graph.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>GPL-3.0</dd></div>
-    <div><dt>Stars</dt><dd>147.5k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/comfyui.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="whisper" data-scene="speech-audio" data-lang="Python" data-license="permissive" data-tier="start" data-search="whisper openai 的语音识别模型与推理代码，多语言、带时间戳，安装简单。 python mit asr">
-  <div class="repo-top"><span class="badge"><span data-zh>语音与音频</span><span data-en>Speech &amp; Audio</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="repos/whisper.html">Whisper</a></h3>
-  <p class="repo-owner">openai / whisper</p>
-  <p><span data-zh>OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。</span><span data-en>OpenAI’s speech-recognition models and inference code, multilingual and timestamp-capable, with a simple install.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>113.0k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-08-31</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/whisper.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="langfuse" data-scene="eval-observability" data-lang="TypeScript" data-license="other" data-tier="prod" data-search="langfuse llm 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。 typescript/python mit 可观测">
-  <div class="repo-top"><span class="badge"><span data-zh>评测与可观测</span><span data-en>Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="repos/langfuse.html">Langfuse</a></h3>
-  <p class="repo-owner">langfuse / langfuse</p>
-  <p><span data-zh>LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。</span><span data-en>Tracing, evaluation, prompt management and cost analytics for LLM applications, available self-hosted.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>NOASSERTION</dd></div>
-    <div><dt>Stars</dt><dd>37.6k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/langfuse.html">看仓库卡 →</a>
+<div class="repo-grid"><article class="repo-card" data-id="crewai" data-lang="Python" data-license="permissive" data-scene="agent-frameworks" data-search="crewai 用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。 python mit 多 agent" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="repos/crewai.html">CrewAI</a></h3>
+<p class="repo-owner">crewAIInc / crewAI</p>
+<p><span data-zh="">用“角色 + 任务 + 协作流程”搭多 agent 团队，适合快速把分工跑起来。</span><span data-en="">Build multi-agent teams from roles, tasks and a collaboration process; good for getting division of labour running quickly.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>61.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="repos/crewai.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="ragflow" data-lang="Go" data-license="permissive" data-scene="rag-knowledge" data-search="ragflow 带文档解析、切分、检索与引用的 rag 平台，适合把一套知识库跑起来。 python apache-2.0 rag 平台" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">RAG 与知识库</span><span data-en="">RAG &amp; Knowledge Bases</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="repos/ragflow.html">RAGFlow</a></h3>
+<p class="repo-owner">infiniflow / ragflow</p>
+<p><span data-zh="">带文档解析、切分、检索与引用的 RAG 平台，适合把一套知识库跑起来。</span><span data-en="">A RAG platform with document parsing, chunking, retrieval and citations, built to get a knowledge base running.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Go</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>94.4k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="repos/ragflow.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="ollama" data-lang="Go" data-license="permissive" data-scene="local-inference" data-search="ollama 一条命令拉模型、跑本地推理，自带模型库与 openai 兼容 api。 go mit 本地推理" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">本地推理与部署</span><span data-en="">Local Inference &amp; Serving</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="repos/ollama.html">Ollama</a></h3>
+<p class="repo-owner">ollama / ollama</p>
+<p><span data-zh="">一条命令拉模型、跑本地推理，自带模型库与 OpenAI 兼容 API。</span><span data-en="">Pull and run local models with one command, with a built-in model library and an OpenAI-compatible API.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Go</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>187.6k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="repos/ollama.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="comfyui" data-lang="Python" data-license="strong" data-scene="multimodal-visual" data-search="comfyui 节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。 python gpl-3.0 节点工作流" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">多模态与图像视频</span><span data-en="">Multimodal, Image &amp; Video</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="repos/comfyui.html">ComfyUI</a></h3>
+<p class="repo-owner">comfyanonymous / ComfyUI</p>
+<p><span data-zh="">节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。</span><span data-en="">A node-based image and video generation workflow that wires models, samplers, ControlNet and post-processing into a graph.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>GPL-3.0</dd></div>
+<div><dt>Stars</dt><dd>147.5k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="repos/comfyui.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="whisper" data-lang="Python" data-license="permissive" data-scene="speech-audio" data-search="whisper openai 的语音识别模型与推理代码，多语言、带时间戳，安装简单。 python mit asr" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">语音与音频</span><span data-en="">Speech &amp; Audio</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="repos/whisper.html">Whisper</a></h3>
+<p class="repo-owner">openai / whisper</p>
+<p><span data-zh="">OpenAI 的语音识别模型与推理代码，多语言、带时间戳，安装简单。</span><span data-en="">OpenAI’s speech-recognition models and inference code, multilingual and timestamp-capable, with a simple install.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>113.0k</dd></div>
+<div><dt>最近推送</dt><dd>2026-08-31</dd></div>
+</dl>
+<a class="repo-link" href="repos/whisper.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="langfuse" data-lang="TypeScript" data-license="other" data-scene="eval-observability" data-search="langfuse llm 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。 typescript/python mit 可观测" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">评测与可观测</span><span data-en="">Evaluation &amp; Observability</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="repos/langfuse.html">Langfuse</a></h3>
+<p class="repo-owner">langfuse / langfuse</p>
+<p><span data-zh="">LLM 应用的追踪、评测、prompt 管理与成本分析平台，可自托管。</span><span data-en="">Tracing, evaluation, prompt management and cost analytics for LLM applications, available self-hosted.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>NOASSERTION</dd></div>
+<div><dt>Stars</dt><dd>37.6k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="repos/langfuse.html">看仓库卡 →</a>
 </article></div>
 <div class="section-head"><h2>2026 新上架</h2><span class="sub">star 多不等于适合你，先看权限与许可</span></div>
-<div class="repo-grid"><article class="repo-card" data-id="openclaw" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="start" data-search="openclaw 把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 gateway 管理会话、技能、定时任务和沙箱执行。 typescript mit 2026 新项目 个人助理 20+ 渠道">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="repos/openclaw.html">OpenClaw</a></h3>
-  <p class="repo-owner">openclaw / openclaw</p>
-  <p><span data-zh>把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。</span><span data-en>Run a personal assistant on your own machine, connected to 20+ chat channels plus native desktop and mobile; one Gateway manages sessions, skills, schedules and sandboxed execution.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>394.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/openclaw.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="deepseek-harness" data-scene="agent-frameworks" data-lang="TypeScript" data-license="permissive" data-tier="start" data-search="deepseek harness deepseek 的插件化 agent harness（dsh）：一切皆插件，本地 web ui 一条命令起，面向多模型、多工具的长期任务。 typescript mit 2026 新项目 插件化 dsh">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="repos/deepseek-harness.html">DeepSeek Harness</a></h3>
-  <p class="repo-owner">deepseek-ai / deepseek-harness</p>
-  <p><span data-zh>DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。</span><span data-en>DeepSeek’s plugin-based agent harness (dsh): everything is a plugin, a local web UI starts with one command, and it targets long tasks across models and tools.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>MIT</dd></div>
-    <div><dt>Stars</dt><dd>284.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/deepseek-harness.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="codex-cli" data-scene="agent-frameworks" data-lang="Rust" data-license="permissive" data-tier="prod" data-search="codex cli openai 的本地 coding agent：rust 实现、os 级沙箱、mcp 与云任务交接，适合终端里改代码。 rust apache-2.0 coding agent 沙箱 mcp">
-  <div class="repo-top"><span class="badge"><span data-zh>Agent 框架与编排</span><span data-en>Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="repos/codex-cli.html">Codex CLI</a></h3>
-  <p class="repo-owner">openai / codex</p>
-  <p><span data-zh>OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</span><span data-en>OpenAI’s local coding agent: Rust binary, OS-level sandbox, MCP and cloud-task handoff, built for editing code in the terminal.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Rust</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>135.9k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/codex-cli.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="firecrawl" data-scene="rag-knowledge" data-lang="TypeScript" data-license="strong" data-tier="prod" data-search="firecrawl 把网站抓成干净 markdown / 结构化数据，供 rag 与 agent 使用；可本地单二进制、mcp server 或自托管 api。 typescript agpl-3.0 网页抓取 markdown mcp">
-  <div class="repo-top"><span class="badge"><span data-zh>RAG 与知识库</span><span data-en>RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="repos/firecrawl.html">Firecrawl</a></h3>
-  <p class="repo-owner">firecrawl / firecrawl</p>
-  <p><span data-zh>把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。</span><span data-en>Crawl websites into clean Markdown or structured data for RAG and agents, available as a local binary, MCP server or self-hosted API.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>TypeScript</dd></div>
-    <div><dt>许可</dt><dd>AGPL-3.0</dd></div>
-    <div><dt>Stars</dt><dd>204.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="repos/firecrawl.html">看仓库卡 →</a>
+<div class="repo-grid"><article class="repo-card" data-id="openclaw" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="openclaw 把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 gateway 管理会话、技能、定时任务和沙箱执行。 typescript mit 2026 新项目 个人助理 20+ 渠道" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="repos/openclaw.html">OpenClaw</a></h3>
+<p class="repo-owner">openclaw / openclaw</p>
+<p><span data-zh="">把个人助理跑在自己机器上，接入 20+ 聊天渠道与原生桌面/移动端；一个 Gateway 管理会话、技能、定时任务和沙箱执行。</span><span data-en="">Run a personal assistant on your own machine, connected to 20+ chat channels plus native desktop and mobile; one Gateway manages sessions, skills, schedules and sandboxed execution.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>394.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="repos/openclaw.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="deepseek-harness" data-lang="TypeScript" data-license="permissive" data-scene="agent-frameworks" data-search="deepseek harness deepseek 的插件化 agent harness（dsh）：一切皆插件，本地 web ui 一条命令起，面向多模型、多工具的长期任务。 typescript mit 2026 新项目 插件化 dsh" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="repos/deepseek-harness.html">DeepSeek Harness</a></h3>
+<p class="repo-owner">deepseek-ai / deepseek-harness</p>
+<p><span data-zh="">DeepSeek 的插件化 agent harness（dsh）：一切皆插件，本地 Web UI 一条命令起，面向多模型、多工具的长期任务。</span><span data-en="">DeepSeek’s plugin-based agent harness (dsh): everything is a plugin, a local web UI starts with one command, and it targets long tasks across models and tools.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>284.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="repos/deepseek-harness.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="codex-cli" data-lang="Rust" data-license="permissive" data-scene="agent-frameworks" data-search="codex cli openai 的本地 coding agent：rust 实现、os 级沙箱、mcp 与云任务交接，适合终端里改代码。 rust apache-2.0 coding agent 沙箱 mcp" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">Agent 框架与编排</span><span data-en="">Agent Frameworks &amp; Orchestration</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="repos/codex-cli.html">Codex CLI</a></h3>
+<p class="repo-owner">openai / codex</p>
+<p><span data-zh="">OpenAI 的本地 coding agent：Rust 实现、OS 级沙箱、MCP 与云任务交接，适合终端里改代码。</span><span data-en="">OpenAI’s local coding agent: Rust binary, OS-level sandbox, MCP and cloud-task handoff, built for editing code in the terminal.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Rust</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>135.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="repos/codex-cli.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="firecrawl" data-lang="TypeScript" data-license="strong" data-scene="rag-knowledge" data-search="firecrawl 把网站抓成干净 markdown / 结构化数据，供 rag 与 agent 使用；可本地单二进制、mcp server 或自托管 api。 typescript agpl-3.0 网页抓取 markdown mcp" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">RAG 与知识库</span><span data-en="">RAG &amp; Knowledge Bases</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="repos/firecrawl.html">Firecrawl</a></h3>
+<p class="repo-owner">firecrawl / firecrawl</p>
+<p><span data-zh="">把网站抓成干净 markdown / 结构化数据，供 RAG 与 agent 使用；可本地单二进制、MCP server 或自托管 API。</span><span data-en="">Crawl websites into clean Markdown or structured data for RAG and agents, available as a local binary, MCP server or self-hosted API.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Stars</dt><dd>204.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="repos/firecrawl.html">看仓库卡 →</a>
 </article></div>
 <div class="section-head"><h2>怎么用这个站</h2></div>
-<div class="note"><b>1. 先看“不适合”：</b>每张卡都写它不做什么。比“为什么选”更能帮你排除。<br><b>2. 再看许可与依赖：</b>开源不等于可商用；GPL / AGPL 有传染性，模型与代码的许可要分开看。<br><b>3. 最后看活跃度：</b>star 是快照，不是质量保证；看最近推送、issue、release 与维护者。</div>
+<div class="note"><b>1. 先看“不适合”：</b>每张卡都写它不做什么。比“为什么选”更能帮你排除。<br/><b>2. 再看许可与依赖：</b>开源不等于可商用；GPL / AGPL 有传染性，模型与代码的许可要分开看。<br/><b>3. 最后看活跃度：</b>star 是快照，不是质量保证；看最近推送、issue、release 与维护者。</div>
 <div class="note"><b>说明：</b>GitHub 信息更新到 2026-11-20；许可以仓库 LICENSE 为准，商用前自己再读一遍。</div>
 </div>
-  </main>
-  <footer class="site-footer foot-single">
-    <div class="container foot-line">
-      <div class="foot-brand">
-        <span class="foot-brand-main">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="foot-copy"><span data-zh>投机取巧 · specul.com</span><span data-en>Specul · specul.com</span></span>
-        </span>
-        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a><span class="sep" aria-hidden="true">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a></span>
-      </div>
-      <nav class="foot-sites" aria-label="Footer site links">
-        <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://demos.specul.com/"><span data-zh>演示</span><span data-en>Demos</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://oss.specul.com/"><span data-zh>开源</span><span data-en>OSS</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://hardware.specul.com/"><span data-zh>算力</span><span data-en>Compute</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-      </nav>
-      <nav class="foot-legal" aria-label="Legal and corrections">
-        <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私</span><span data-en>Privacy</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
-      </nav>
-    </div>
-  </footer>
-<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
-    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
-    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
-    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
-    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
-    <a href="https://oss.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
-    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
-    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+</main>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy"><span data-zh="">投机取巧 · specul.com</span><span data-en="">Specul · specul.com</span></span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh="">内容 CC BY 4.0</span><span data-en="">Content CC BY 4.0</span></a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh="">代码 MIT</span><span data-en="">Code MIT</span></a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank"><span data-zh="">源码</span><span data-en="">Source</span></a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/"><span data-zh="">演示</span><span data-en="">Demos</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/"><span data-zh="">开源</span><span data-en="">OSS</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/"><span data-zh="">算力</span><span data-en="">Compute</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/"><span data-zh="">论文</span><span data-en="">Papers</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/"><span data-zh="">导航</span><span data-en="">Directory</span></a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/legal.html"><span data-zh="">法律</span><span data-en="">Legal</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/legal.html#s8"><span data-zh="">隐私</span><span data-en="">Privacy</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/correct.html"><span data-zh="">纠错</span><span data-en="">Corrections</span></a>
+</nav>
+</div>
+</footer>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a href="https://specul.com/"><span aria-hidden="true" class="ti">◎</span><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span aria-hidden="true" class="ti">▤</span><span data-zh="">学AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span aria-hidden="true" class="ti">◈</span><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span aria-hidden="true" class="ti">▦</span><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span aria-hidden="true" class="ti">▷</span><span data-zh="">演示</span><span data-en="">Demos</span></a>
+<a aria-current="page" href="https://oss.specul.com/"><span aria-hidden="true" class="ti">▧</span><span data-zh="">开源</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span aria-hidden="true" class="ti">▣</span><span data-zh="">算力</span><span data-en="">Chips</span></a>
+<a href="https://papers.specul.com/"><span aria-hidden="true" class="ti">▥</span><span data-zh="">论文</span><span data-en="">Papers</span></a>
+<a href="https://chain.specul.com/"><span aria-hidden="true" class="ti">◇</span><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a data-nav-group="external" href="https://nav.specul.com/"><span aria-hidden="true" class="ti">↗</span><span data-zh="">导航</span><span data-en="">Nav</span></a>
 </nav>
 </body>
 </html>

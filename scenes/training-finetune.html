@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>训练与微调 · 开源 AI 工具库</title>
-  <meta name="description" content="训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 20 个开源仓库，写清许可、活跃度、适合与不适合。" />
-  <link rel="canonical" href="https://oss.specul.com/scenes/training-finetune.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="训练与微调 · 开源 AI 工具库" />
-  <meta property="og:url" content="https://oss.specul.com/scenes/training-finetune.html" />
-  <meta property="og:title" content="训练与微调 · 开源 AI 工具库" />
-  <meta property="og:description" content="训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 20 个开源仓库，写清许可、活跃度、适合与不适合。" />
-  <meta property="og:locale" content="zh_CN" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <link rel="alternate" hreflang="zh-CN" href="https://oss.specul.com/scenes/training-finetune.html" />
-  <link rel="alternate" hreflang="en" href="https://oss.specul.com/scenes/training-finetune.html?lang=en" />
-  <link rel="alternate" hreflang="x-default" href="https://oss.specul.com/scenes/training-finetune.html" />
-  <meta name="theme-color" content="#16121f" />
-  <link rel="icon" type="image/png" href="../assets/brand/dandelion-favicon-site.png" />
-  <link rel="apple-touch-icon" href="../assets/brand/dandelion-apple-touch-site.png" />
-  <script src="../brand.js?v=37d1072be69b"></script>
-  <link rel="stylesheet" href="../brand.css?v=37d1072be69b" />
-  <link rel="stylesheet" href="../site.css" />
-  <link rel="stylesheet" href="../oss.css?v=c93c2fbc" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"训练与微调 · 开源 AI 工具库","description":"训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 20 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/training-finetune.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>训练与微调 · 开源 AI 工具库</title>
+<meta content="训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 20 个开源仓库，写清许可、活跃度、适合与不适合。" name="description"/>
+<link href="https://oss.specul.com/scenes/training-finetune.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="训练与微调 · 开源 AI 工具库" property="og:site_name"/>
+<meta content="https://oss.specul.com/scenes/training-finetune.html" property="og:url"/>
+<meta content="训练与微调 · 开源 AI 工具库" property="og:title"/>
+<meta content="训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 20 个开源仓库，写清许可、活跃度、适合与不适合。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="en_US" property="og:locale:alternate"/>
+<meta content="#16121f" name="theme-color"/>
+<link href="../assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="../assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="../brand.js?v=37d1072be69b"></script>
+<link href="../brand.css?v=37d1072be69b" rel="stylesheet"/>
+<link href="../site.css" rel="stylesheet"/>
+<link href="../oss.css?v=c93c2fbc" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"训练与微调 · 开源 AI 工具库","description":"训练与微调：把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。 收录 20 个开源仓库，写清许可、活跃度、适合与不适合。","url":"https://oss.specul.com/scenes/training-finetune.html","inLanguage":["zh-CN","en"],"isPartOf":{"@type":"WebSite","url":"https://specul.com/"}}</script>
 </head>
 <!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
      同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
@@ -33,326 +30,326 @@
      ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
      （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
 <body class="brand-ambient has-tabbar has-tabbar-1row">
-  <a class="t-skip" href="#main"><span data-zh>跳到主要内容</span><span data-en>Skip to main content</span></a>
-  <header class="site-header">
-    <div class="container site-bar">
-      <a class="brand" href="https://specul.com/" title="投机取巧">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name" id="markName" data-zh-name="投机取巧" data-en-name="Speculative Speculation">投机取巧</span>
-          <span class="brand-sub" id="markSub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="站点导航">
-        <a href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a>
-        <a href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a>
-        <a href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a>
-        <a href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a>
-        <a href="https://demos.specul.com/"><span data-zh>作品演示</span><span data-en>Playground</span></a>
-        <a href="https://oss.specul.com/" aria-current="page"><span data-zh>开源库</span><span data-en>OSS</span></a>
-        <a href="https://hardware.specul.com/"><span data-zh>硬件算力</span><span data-en>Compute</span></a>
-        <a href="https://papers.specul.com/"><span data-zh>AI 论文</span><span data-en>AI Papers</span></a>
-        <a href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a>
-        <a href="https://nav.specul.com/"><span data-zh>AI 导航</span><span data-en>AI Directory</span></a>
-      </nav>
-      <!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+<a class="t-skip" href="#main"><span data-zh="">跳到主要内容</span><span data-en="">Skip to main content</span></a>
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" data-en-name="Speculative Speculation" data-zh-name="投机取巧" id="markName">投机取巧</span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation" id="markSub">Speculative Speculation</span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span data-zh="">作品演示</span><span data-en="">Playground</span></a>
+<a aria-current="page" href="https://oss.specul.com/"><span data-zh="">开源库</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span data-zh="">硬件算力</span><span data-en="">Compute</span></a>
+<a href="https://papers.specul.com/"><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></a>
+<a href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a href="https://nav.specul.com/"><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
            放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
            （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
            链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
-      <span class="nav-tools">
-        <a class="icon-btn" href="https://specul.com/search.html" aria-label="搜索" data-ui-aria-label-zh="搜索" data-ui-aria-label-en="Search" title="搜索全站" data-ui-title-zh="搜索全站" data-ui-title-en="Search all sites"><span aria-hidden="true">⌕</span></a>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换明暗主题" title="切换明暗主题">☾</button>
-        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language" title="Switch language">EN</button>
-      </span>
-      <!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+<span class="nav-tools">
+<a aria-label="搜索" class="icon-btn" data-ui-aria-label-en="Search" data-ui-aria-label-zh="搜索" data-ui-title-en="Search all sites" data-ui-title-zh="搜索全站" href="https://specul.com/search.html" title="搜索全站"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="Switch to English" class="icon-btn" href="/en/scenes/training-finetune.html" hreflang="en" id="langBtn" lang="en" title="Switch to English">EN</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
            行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
            无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
            「导航被藏进一个点了没反应的按钮」。 -->
-      <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navDrawer">
-        <i></i><i></i><i></i>
-      </button>
-    </div>
-  </header>
-  <div class="nav-scrim"></div>
-  <aside class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="站点导航">
-    <div class="nav-drawer-h">
-      <span class="brand-name"><span data-zh>投机取巧</span><span data-en>Speculative Speculation</span></span>
-      <span class="brand-sub" data-zh-sub="Speculative Speculation" data-en-sub="">Speculative Speculation</span>
-      <button class="nav-dclose" type="button" aria-label="关闭">×</button>
-    </div>
-    <nav class="nav-drawer-list">
-      <a href="https://specul.com/"><span><span data-zh>首页</span><span data-en>Home</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://learn.specul.com/"><span><span data-zh>学 AI</span><span data-en>Learn</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://tools.specul.com/"><span><span data-zh>工具</span><span data-en>Tools</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://models.specul.com/"><span><span data-zh>模型</span><span data-en>Models</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://demos.specul.com/"><span><span data-zh>作品演示</span><span data-en>Playground</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://oss.specul.com/" aria-current="page"><span><span data-zh>开源库</span><span data-en>OSS</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://hardware.specul.com/" class="nav-group-start"><span><span data-zh>硬件算力</span><span data-en>Compute</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://papers.specul.com/"><span><span data-zh>AI 论文</span><span data-en>AI Papers</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://chain.specul.com/"><span><span data-zh>链</span><span data-en>Chain</span></span><span class="ar" aria-hidden="true">→</span></a>
-      <a href="https://nav.specul.com/" class="nav-group-start" data-nav-group="external"><span><span data-zh>AI 导航</span><span data-en>AI Directory</span></span><span class="ar" aria-hidden="true">↗</span></a>
-    </nav>
-    <div class="nav-drawer-foot">
-      <p><span data-zh>内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
-      <nav><a href="https://specul.com/legal.html"><span data-zh>法律条款</span><span data-en>Legal terms</span></a></nav>
-    </div>
-  </aside>
-  <main id="main">
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name"><span data-zh="">投机取巧</span><span data-en="">Speculative Speculation</span></span>
+<span class="brand-sub" data-en-sub="" data-zh-sub="Speculative Speculation">Speculative Speculation</span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a href="https://specul.com/"><span><span data-zh="">首页</span><span data-en="">Home</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/"><span><span data-zh="">学 AI</span><span data-en="">Learn</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/"><span><span data-zh="">工具</span><span data-en="">Tools</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/"><span><span data-zh="">模型</span><span data-en="">Models</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/"><span><span data-zh="">作品演示</span><span data-en="">Playground</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a aria-current="page" href="https://oss.specul.com/"><span><span data-zh="">开源库</span><span data-en="">OSS</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/"><span><span data-zh="">硬件算力</span><span data-en="">Compute</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/"><span><span data-zh="">AI 论文</span><span data-en="">AI Papers</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/"><span><span data-zh="">链</span><span data-en="">Chain</span></span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/"><span><span data-zh="">AI 导航</span><span data-en="">AI Directory</span></span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p><span data-zh="">内容站覆盖学、用、选、跑；AI 导航是站外的 AI 网站目录，点出去看。</span><span data-en="">Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</span></p>
+<nav><a href="https://specul.com/legal.html"><span data-zh="">法律条款</span><span data-en="">Legal terms</span></a></nav>
+</div>
+</aside>
+<main id="main">
 <div class="container">
 <header class="page-head">
-  <p class="eyebrow">OSS · Scene 07</p>
-  <h1><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></h1>
-  <p class="lede"><span data-zh>把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。</span><span data-en>Turn a base model into your own: from single-GPU QLoRA to multi-node RLHF, start with VRAM, parallelism and reproducibility.</span></p>
+<p class="eyebrow">OSS · Scene 07</p>
+<h1><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></h1>
+<p class="lede"><span data-zh="">把现成模型改成你自己的：从单卡 QLoRA 到多机 RLHF，先看显存、并行方式与可复现性。</span><span data-en="">Turn a base model into your own: from single-GPU QLoRA to multi-node RLHF, start with VRAM, parallelism and reproducibility.</span></p>
 </header>
 <div class="hero-actions">
-  <a class="btn primary" href="../all.html?scene=training-finetune"><span data-zh>看这个场景的全部 →</span><span data-en>See all in this scene →</span></a>
-  <a class="btn" href="../compare.html?ids=unsloth,llamafactory,axolotl"><span data-zh>并排对比前 3 个</span><span data-en>Compare first 3</span></a>
-  <a class="btn" href="../index.html"><span data-zh>回首页</span><span data-en>Home</span></a>
+<a class="btn primary" href="../all.html?scene=training-finetune"><span data-zh="">看这个场景的全部 →</span><span data-en="">See all in this scene →</span></a>
+<a class="btn" href="../compare.html?ids=unsloth,llamafactory,axolotl"><span data-zh="">并排对比前 3 个</span><span data-en="">Compare first 3</span></a>
+<a class="btn" href="../index.html"><span data-zh="">回首页</span><span data-en="">Home</span></a>
 </div>
-<div class="stats"><div><b>20</b><span><span data-zh>个场景精选</span><span data-en>selected repos</span></span></div><div><b><span data-zh>适合要改模型行为、做领域适配或对齐训练的人；只做推理不用进这个场景。</span><span data-en>For people who need to change model behavior, adapt to a domain or run alignment training; inference-only work does not need this scene.</span></b><span><span data-zh>适合谁</span><span data-en>Who it is for</span></span></div></div>
-<div class="section-head"><h2><span data-zh>怎么选</span><span data-en>How to choose</span></h2></div>
-<div class="note">• <span data-zh>单卡 24GB 想微调 7B：先看 Unsloth。</span><span data-en>24 GB single GPU, 7B model: start with Unsloth.</span><br>• <span data-zh>想把微调流程固化成配置：Axolotl。</span><span data-en>Turn fine-tuning into a reproducible config: Axolotl.</span><br>• <span data-zh>做 DPO/PPO/GRPO 对齐：TRL 起步，规模化再看 verl / OpenRLHF。</span><span data-en>DPO/PPO/GRPO alignment: start with TRL, scale with verl / OpenRLHF.</span><br>• <span data-zh>要训大模型或多机：DeepSpeed、TorchTitan。</span><span data-en>Large-model or multi-node training: DeepSpeed, TorchTitan.</span><br>• <span data-zh>MoE 本地跑不动：KTransformers 的专家卸载。</span><span data-en>MoE does not fit locally: KTransformers expert offload.</span><br><b><span data-zh>不适合：</span><span data-en>Not for: </span></b><span data-zh>不要为了“全参训练”而全参；多数领域适配 LoRA/QLoRA 就够，先算数据量与评测收益。</span><span data-en>Do not choose full-parameter training by default; most domain adaptation is served by LoRA/QLoRA. Estimate data volume and eval gain first.</span></div>
-<div class="section-head"><h2>20 <span data-zh>个仓库</span><span data-en>repos</span></h2><span class="sub"><span data-zh>按上手顺序，不是按 star</span><span data-en>Ordered by onboarding, not stars</span></span></div>
-<div class="repo-grid"><article class="repo-card" data-id="unsloth" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="start" data-search="unsloth qlora/lora 微调加速：用 triton 内核把 7b–70b 模型的显存占用和训练时间压下来。 python apache-2.0 qlora 单卡">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/unsloth.html">Unsloth</a></h3>
-  <p class="repo-owner">unslothai / unsloth</p>
-  <p><span data-zh>QLoRA/LoRA 微调加速：用 Triton 内核把 7B–70B 模型的显存占用和训练时间压下来。</span><span data-en>Accelerated QLoRA/LoRA fine-tuning: Triton kernels cut VRAM use and training time for 7B–70B models.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>79.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/unsloth.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="llamafactory" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="start" data-search="llama-factory 一套配置跑通微调：lora、qlora、全参与 dpo，带 webui 和模型导出。 python apache-2.0 lora webui">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-start"><span data-zh>先试这个</span><span data-en>Start here</span></span></div>
-  <h3 class="repo-name"><a href="../repos/llamafactory.html">LLaMA-Factory</a></h3>
-  <p class="repo-owner">hiyouga / LLaMA-Factory</p>
-  <p><span data-zh>一套配置跑通微调：LoRA、QLoRA、全参与 DPO，带 WebUI 和模型导出。</span><span data-en>One setup for fine-tuning: LoRA, QLoRA, full-parameter and DPO, with a WebUI and model export.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>76.1k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/llamafactory.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="axolotl" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="axolotl 一份 yaml 配置跑通微调：支持 lora、qlora、全参、dpo、grpo 与多机训练。 python apache-2.0 yaml 多机">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/axolotl.html">Axolotl</a></h3>
-  <p class="repo-owner">axolotl-ai-cloud / axolotl</p>
-  <p><span data-zh>一份 YAML 配置跑通微调：支持 LoRA、QLoRA、全参、DPO、GRPO 与多机训练。</span><span data-en>One YAML config for fine-tuning: LoRA, QLoRA, full-parameter, DPO, GRPO and multi-node training.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>12.7k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/axolotl.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="peft" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="peft 参数高效微调的标准库：lora、ia3、prefix tuning 等适配器，接 transformers 与 accelerate。 python apache-2.0 lora adapter">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/peft.html">PEFT</a></h3>
-  <p class="repo-owner">huggingface / peft</p>
-  <p><span data-zh>参数高效微调的标准库：LoRA、IA3、Prefix Tuning 等适配器，接 Transformers 与 Accelerate。</span><span data-en>The standard parameter-efficient fine-tuning library: LoRA, IA3, prefix tuning and other adapters, wired into Transformers and Accelerate.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>21.9k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/peft.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="ms-swift" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="ms-swift modelscope 的微调与部署工具链：llm、多模态模型的 lora/全参、dpo/grpo、推理与评测。 python apache-2.0 modelscope 多模态">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/ms-swift.html">ms-swift</a></h3>
-  <p class="repo-owner">modelscope / ms-swift</p>
-  <p><span data-zh>ModelScope 的微调与部署工具链：LLM、多模态模型的 LoRA/全参、DPO/GRPO、推理与评测。</span><span data-en>ModelScope’s fine-tuning and deployment stack: LoRA and full-parameter training for LLMs and multimodal models, DPO/GRPO, inference and evaluation.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>16.1k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/ms-swift.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="trl" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="trl hugging face 的强化学习与对齐训练库：sft、dpo、ppo、grpo、奖励模型都能接。 python apache-2.0 rlhf dpo">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/trl.html">TRL</a></h3>
-  <p class="repo-owner">huggingface / trl</p>
-  <p><span data-zh>Hugging Face 的强化学习与对齐训练库：SFT、DPO、PPO、GRPO、奖励模型都能接。</span><span data-en>Hugging Face&#39;s RL and alignment training library: SFT, DPO, PPO, GRPO and reward models.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>19.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/trl.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="torchtune" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="scale" data-search="torchtune pytorch 原生的微调配方库：可读的训练循环、fsdp、激活检查点与常用后训练配方。 python bsd-3-clause pytorch fsdp">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
-  <h3 class="repo-name"><a href="../repos/torchtune.html">torchtune</a></h3>
-  <p class="repo-owner">meta-pytorch / torchtune</p>
-  <p><span data-zh>PyTorch 原生的微调配方库：可读的训练循环、FSDP、激活检查点与常用后训练配方。</span><span data-en>A PyTorch-native fine-tuning recipe library: readable training loops, FSDP, activation checkpointing and common post-training recipes.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>BSD-3-Clause</dd></div>
-    <div><dt>Stars</dt><dd>5.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/torchtune.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="deepspeed" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="scale" data-search="deepspeed 微软的大模型训练优化库：zero、offload、混合精度与 moe 训练，把显存与吞吐压到可用。 python apache-2.0 zero 多机">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
-  <h3 class="repo-name"><a href="../repos/deepspeed.html">DeepSpeed</a></h3>
-  <p class="repo-owner">deepspeedai / DeepSpeed</p>
-  <p><span data-zh>微软的大模型训练优化库：ZeRO、Offload、混合精度与 MoE 训练，把显存与吞吐压到可用。</span><span data-en>Microsoft&#39;s large-model training library: ZeRO, offload, mixed precision and MoE training to make VRAM and throughput usable.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>43.3k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/deepspeed.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="torchtitan" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="scale" data-search="torchtitan pytorch 官方的大模型训练配方：张量并行、流水并行、fsdp 与分布式检查点，按 llama 3 路线给参考实现。 python bsd-3-clause fsdp 并行">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
-  <h3 class="repo-name"><a href="../repos/torchtitan.html">TorchTitan</a></h3>
-  <p class="repo-owner">pytorch / torchtitan</p>
-  <p><span data-zh>PyTorch 官方的大模型训练配方：张量并行、流水并行、FSDP 与分布式检查点，按 Llama 3 路线给参考实现。</span><span data-en>PyTorch&#39;s official large-model training recipe: tensor parallelism, pipeline parallelism, FSDP and distributed checkpoints, following the Llama 3 path.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>BSD-3-Clause</dd></div>
-    <div><dt>Stars</dt><dd>5.9k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/torchtitan.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="verl" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="scale" data-search="verl 字节跳动的 rl 训练框架：面向 llm agent 与推理任务，支持 ppo/grpo 与多轮工具调用。 python apache-2.0 agentic rl grpo">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
-  <h3 class="repo-name"><a href="../repos/verl.html">verl</a></h3>
-  <p class="repo-owner">volcengine / verl</p>
-  <p><span data-zh>字节跳动的 RL 训练框架：面向 LLM Agent 与推理任务，支持 PPO/GRPO 与多轮工具调用。</span><span data-en>ByteDance&#39;s RL training framework for LLM agents and reasoning tasks, with PPO/GRPO and multi-turn tool use.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>24.3k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/verl.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="openrlhf" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="scale" data-search="openrlhf 基于 ray + vllm 的 rlhf 训练框架：ppo、grpo、dpo、kto 与多机多卡编排。 python apache-2.0 ray ppo">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
-  <h3 class="repo-name"><a href="../repos/openrlhf.html">OpenRLHF</a></h3>
-  <p class="repo-owner">OpenRLHF / OpenRLHF</p>
-  <p><span data-zh>基于 Ray + vLLM 的 RLHF 训练框架：PPO、GRPO、DPO、KTO 与多机多卡编排。</span><span data-en>A Ray + vLLM RLHF framework: PPO, GRPO, DPO, KTO and multi-node orchestration.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>10.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-03</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/openrlhf.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="ktransformers" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="local" data-search="ktransformers 面向异构硬件的推理/微调框架：把 moe 专家卸载到 cpu/内存，用少量 gpu 跑大模型。 python apache-2.0 moe 专家卸载">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-local"><span data-zh>本地优先</span><span data-en>Local-first</span></span></div>
-  <h3 class="repo-name"><a href="../repos/ktransformers.html">KTransformers</a></h3>
-  <p class="repo-owner">kvcache-ai / ktransformers</p>
-  <p><span data-zh>面向异构硬件的推理/微调框架：把 MoE 专家卸载到 CPU/内存，用少量 GPU 跑大模型。</span><span data-en>Heterogeneous-hardware inference and fine-tuning: offload MoE experts to CPU/RAM so a small GPU can run large models.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>19.7k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-13</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/ktransformers.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="megatron-lm" data-scene="training-finetune" data-lang="Python" data-license="other" data-tier="scale" data-search="megatron-lm nvidia 的大规模 transformer 训练框架，支持张量/流水/序列/上下文并行、fp8、moe 和分布式 checkpoint。 python cuda bsd-3-clause 分布式训练 moe">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh>规模 / 性能</span><span data-en>Scale / performance</span></span></div>
-  <h3 class="repo-name"><a href="../repos/megatron-lm.html">Megatron-LM</a></h3>
-  <p class="repo-owner">NVIDIA / Megatron-LM</p>
-  <p><span data-zh>NVIDIA 的大规模 Transformer 训练框架，支持张量/流水/序列/上下文并行、FP8、MoE 和分布式 checkpoint。</span><span data-en>NVIDIA’s large-scale Transformer training framework with tensor, pipeline, sequence and context parallelism, FP8, MoE and distributed checkpointing.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>NOASSERTION</dd></div>
-    <div><dt>Stars</dt><dd>18.4k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/megatron-lm.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="kohya-ss" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="kohya_ss stable diffusion 系模型的训练 gui 与脚本集合：lora、dreambooth、fine-tune、数据集打标与工具，覆盖 sd1/sdxl/flux 等。 python apache-2.0 lora diffusion 训练">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/kohya-ss.html">kohya_ss</a></h3>
-  <p class="repo-owner">bmaltais / kohya_ss</p>
-  <p><span data-zh>Stable Diffusion 系模型的训练 GUI 与脚本集合：LoRA、DreamBooth、fine-tune、数据集打标与工具，覆盖 SD1/SDXL/FLUX 等。</span><span data-en>A training GUI and script collection for Stable Diffusion models: LoRA, DreamBooth, fine-tuning, dataset tagging and utilities across SD1, SDXL and FLUX.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>12.7k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-08-01</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/kohya-ss.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="litgpt" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="litgpt lightning ai 的轻量 llm 训练、微调与部署配方：20+ 模型，支持 pretrain、sft、lora、量化与推理，强调单卡可跑与可读代码。 python apache-2.0 llm 微调 单卡">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/litgpt.html">LitGPT</a></h3>
-  <p class="repo-owner">Lightning-AI / litgpt</p>
-  <p><span data-zh>Lightning AI 的轻量 LLM 训练、微调与部署配方：20+ 模型，支持 pretrain、SFT、LoRA、量化与推理，强调单卡可跑与可读代码。</span><span data-en>Lightning AI’s lightweight recipes for LLM training, fine-tuning and deployment: 20+ models, pretraining, SFT, LoRA, quantisation and inference, with an emphasis on single-GPU runs and readable code.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>13.8k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-10</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/litgpt.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="accelerate" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="accelerate 把 pytorch 的多 gpu、tpu、混合精度、梯度累积、fsdp 与 deepspeed 启动样板收进一个 api：设备放置、分布式启动和混合精度不用手写。 python apache-2.0 分布式训练 混合精度">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/accelerate.html">Accelerate</a></h3>
-  <p class="repo-owner">huggingface / accelerate</p>
-  <p><span data-zh>把 PyTorch 的多 GPU、TPU、混合精度、梯度累积、FSDP 与 DeepSpeed 启动样板收进一个 API：设备放置、分布式启动和混合精度不用手写。</span><span data-en>Pulls PyTorch’s multi-GPU, TPU, mixed-precision, gradient-accumulation, FSDP and DeepSpeed boilerplate into one API: device placement, distributed launch and AMP without hand-written scaffolding.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>9.9k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-18</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/accelerate.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="datasets" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="datasets hugging face 的数据集库：load_dataset 读取 hub、parquet、json、csv，支持流式读取、内存映射、map/filter/shuffle 与 train/test split，不用先把整份语料塞进内存。 python apache-2.0 数据集 流式读取">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/datasets.html">Datasets</a></h3>
-  <p class="repo-owner">huggingface / datasets</p>
-  <p><span data-zh>Hugging Face 的数据集库：load_dataset 读取 Hub、Parquet、JSON、CSV，支持流式读取、内存映射、map/filter/shuffle 与 train/test split，不用先把整份语料塞进内存。</span><span data-en>Hugging Face’s dataset library: load_dataset reads Hub, Parquet, JSON and CSV with streaming, memory mapping, map/filter/shuffle and train/test splits — without loading the whole corpus into RAM.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>22.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-19</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/datasets.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="ray" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="ray 分布式计算框架：把 python 任务与 actor 扩展到多核多机；ray train / serve / data / tune 覆盖训练、推理、数据加载与超参搜索。 python apache-2.0 分布式 ray serve">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/ray.html">Ray</a></h3>
-  <p class="repo-owner">ray-project / ray</p>
-  <p><span data-zh>分布式计算框架：把 Python 任务与 actor 扩展到多核多机；Ray Train / Serve / Data / Tune 覆盖训练、推理、数据加载与超参搜索。</span><span data-en>A distributed compute framework: scale Python tasks and actors across cores and machines; Ray Train / Serve / Data / Tune cover training, serving, data loading and hyperparameter search.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>44.3k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/ray.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="argilla" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="argilla 人机协同的数据标注与 curation 平台：数据集、标注任务、弱监督、模型反馈与 hugging face hub 集成，适合 sft/rlhf 数据。 python apache-2.0 数据标注 rlhf">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/argilla.html">Argilla</a></h3>
-  <p class="repo-owner">argilla-io / argilla</p>
-  <p><span data-zh>人机协同的数据标注与 curation 平台：数据集、标注任务、弱监督、模型反馈与 Hugging Face Hub 集成，适合 SFT/RLHF 数据。</span><span data-en>Human-in-the-loop data annotation and curation: datasets, labeling tasks, weak supervision, model feedback and Hugging Face Hub integration for SFT/RLHF data.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>5.2k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-16</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/argilla.html">看仓库卡 →</a>
-</article><article class="repo-card" data-id="label-studio" data-scene="training-finetune" data-lang="Python" data-license="permissive" data-tier="prod" data-search="label studio 多模态数据标注平台：文本、图像、音频、视频、html 与时间序列都能用模板化界面标注；支持 ml 后端预标注、多人协作与多种导出格式。 python apache-2.0 多模态标注 协作">
-  <div class="repo-top"><span class="badge"><span data-zh>训练与微调</span><span data-en>Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh>生产可用</span><span data-en>Production</span></span></div>
-  <h3 class="repo-name"><a href="../repos/label-studio.html">Label Studio</a></h3>
-  <p class="repo-owner">HumanSignal / label-studio</p>
-  <p><span data-zh>多模态数据标注平台：文本、图像、音频、视频、HTML 与时间序列都能用模板化界面标注；支持 ML 后端预标注、多人协作与多种导出格式。</span><span data-en>A multimodal data-labeling platform: text, image, audio, video, HTML and time series with templated interfaces; ML-backend pre-labeling, multi-user collaboration and many export formats.</span></p>
-  <dl class="repo-facts">
-    <div><dt>语言</dt><dd>Python</dd></div>
-    <div><dt>许可</dt><dd>Apache-2.0</dd></div>
-    <div><dt>Stars</dt><dd>28.7k</dd></div>
-    <div><dt>最近推送</dt><dd>2026-11-20</dd></div>
-  </dl>
-  <a class="repo-link" href="../repos/label-studio.html">看仓库卡 →</a>
+<div class="stats"><div><b>20</b><span><span data-zh="">个场景精选</span><span data-en="">selected repos</span></span></div><div><b><span data-zh="">适合要改模型行为、做领域适配或对齐训练的人；只做推理不用进这个场景。</span><span data-en="">For people who need to change model behavior, adapt to a domain or run alignment training; inference-only work does not need this scene.</span></b><span><span data-zh="">适合谁</span><span data-en="">Who it is for</span></span></div></div>
+<div class="section-head"><h2><span data-zh="">怎么选</span><span data-en="">How to choose</span></h2></div>
+<div class="note">• <span data-zh="">单卡 24GB 想微调 7B：先看 Unsloth。</span><span data-en="">24 GB single GPU, 7B model: start with Unsloth.</span><br/>• <span data-zh="">想把微调流程固化成配置：Axolotl。</span><span data-en="">Turn fine-tuning into a reproducible config: Axolotl.</span><br/>• <span data-zh="">做 DPO/PPO/GRPO 对齐：TRL 起步，规模化再看 verl / OpenRLHF。</span><span data-en="">DPO/PPO/GRPO alignment: start with TRL, scale with verl / OpenRLHF.</span><br/>• <span data-zh="">要训大模型或多机：DeepSpeed、TorchTitan。</span><span data-en="">Large-model or multi-node training: DeepSpeed, TorchTitan.</span><br/>• <span data-zh="">MoE 本地跑不动：KTransformers 的专家卸载。</span><span data-en="">MoE does not fit locally: KTransformers expert offload.</span><br/><b><span data-zh="">不适合：</span><span data-en="">Not for: </span></b><span data-zh="">不要为了“全参训练”而全参；多数领域适配 LoRA/QLoRA 就够，先算数据量与评测收益。</span><span data-en="">Do not choose full-parameter training by default; most domain adaptation is served by LoRA/QLoRA. Estimate data volume and eval gain first.</span></div>
+<div class="section-head"><h2>20 <span data-zh="">个仓库</span><span data-en="">repos</span></h2><span class="sub"><span data-zh="">按上手顺序，不是按 star</span><span data-en="">Ordered by onboarding, not stars</span></span></div>
+<div class="repo-grid"><article class="repo-card" data-id="unsloth" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="unsloth qlora/lora 微调加速：用 triton 内核把 7b–70b 模型的显存占用和训练时间压下来。 python apache-2.0 qlora 单卡" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/unsloth.html">Unsloth</a></h3>
+<p class="repo-owner">unslothai / unsloth</p>
+<p><span data-zh="">QLoRA/LoRA 微调加速：用 Triton 内核把 7B–70B 模型的显存占用和训练时间压下来。</span><span data-en="">Accelerated QLoRA/LoRA fine-tuning: Triton kernels cut VRAM use and training time for 7B–70B models.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>79.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/unsloth.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="llamafactory" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="llama-factory 一套配置跑通微调：lora、qlora、全参与 dpo，带 webui 和模型导出。 python apache-2.0 lora webui" data-tier="start">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-start"><span data-zh="">先试这个</span><span data-en="">Start here</span></span></div>
+<h3 class="repo-name"><a href="../repos/llamafactory.html">LLaMA-Factory</a></h3>
+<p class="repo-owner">hiyouga / LLaMA-Factory</p>
+<p><span data-zh="">一套配置跑通微调：LoRA、QLoRA、全参与 DPO，带 WebUI 和模型导出。</span><span data-en="">One setup for fine-tuning: LoRA, QLoRA, full-parameter and DPO, with a WebUI and model export.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>76.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/llamafactory.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="axolotl" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="axolotl 一份 yaml 配置跑通微调：支持 lora、qlora、全参、dpo、grpo 与多机训练。 python apache-2.0 yaml 多机" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/axolotl.html">Axolotl</a></h3>
+<p class="repo-owner">axolotl-ai-cloud / axolotl</p>
+<p><span data-zh="">一份 YAML 配置跑通微调：支持 LoRA、QLoRA、全参、DPO、GRPO 与多机训练。</span><span data-en="">One YAML config for fine-tuning: LoRA, QLoRA, full-parameter, DPO, GRPO and multi-node training.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>12.7k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/axolotl.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="peft" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="peft 参数高效微调的标准库：lora、ia3、prefix tuning 等适配器，接 transformers 与 accelerate。 python apache-2.0 lora adapter" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/peft.html">PEFT</a></h3>
+<p class="repo-owner">huggingface / peft</p>
+<p><span data-zh="">参数高效微调的标准库：LoRA、IA3、Prefix Tuning 等适配器，接 Transformers 与 Accelerate。</span><span data-en="">The standard parameter-efficient fine-tuning library: LoRA, IA3, prefix tuning and other adapters, wired into Transformers and Accelerate.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>21.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/peft.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="ms-swift" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="ms-swift modelscope 的微调与部署工具链：llm、多模态模型的 lora/全参、dpo/grpo、推理与评测。 python apache-2.0 modelscope 多模态" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/ms-swift.html">ms-swift</a></h3>
+<p class="repo-owner">modelscope / ms-swift</p>
+<p><span data-zh="">ModelScope 的微调与部署工具链：LLM、多模态模型的 LoRA/全参、DPO/GRPO、推理与评测。</span><span data-en="">ModelScope’s fine-tuning and deployment stack: LoRA and full-parameter training for LLMs and multimodal models, DPO/GRPO, inference and evaluation.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>16.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/ms-swift.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="trl" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="trl hugging face 的强化学习与对齐训练库：sft、dpo、ppo、grpo、奖励模型都能接。 python apache-2.0 rlhf dpo" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/trl.html">TRL</a></h3>
+<p class="repo-owner">huggingface / trl</p>
+<p><span data-zh="">Hugging Face 的强化学习与对齐训练库：SFT、DPO、PPO、GRPO、奖励模型都能接。</span><span data-en="">Hugging Face's RL and alignment training library: SFT, DPO, PPO, GRPO and reward models.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>19.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/trl.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="torchtune" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="torchtune pytorch 原生的微调配方库：可读的训练循环、fsdp、激活检查点与常用后训练配方。 python bsd-3-clause pytorch fsdp" data-tier="scale">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh="">规模 / 性能</span><span data-en="">Scale / performance</span></span></div>
+<h3 class="repo-name"><a href="../repos/torchtune.html">torchtune</a></h3>
+<p class="repo-owner">meta-pytorch / torchtune</p>
+<p><span data-zh="">PyTorch 原生的微调配方库：可读的训练循环、FSDP、激活检查点与常用后训练配方。</span><span data-en="">A PyTorch-native fine-tuning recipe library: readable training loops, FSDP, activation checkpointing and common post-training recipes.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>BSD-3-Clause</dd></div>
+<div><dt>Stars</dt><dd>5.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/torchtune.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="deepspeed" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="deepspeed 微软的大模型训练优化库：zero、offload、混合精度与 moe 训练，把显存与吞吐压到可用。 python apache-2.0 zero 多机" data-tier="scale">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh="">规模 / 性能</span><span data-en="">Scale / performance</span></span></div>
+<h3 class="repo-name"><a href="../repos/deepspeed.html">DeepSpeed</a></h3>
+<p class="repo-owner">deepspeedai / DeepSpeed</p>
+<p><span data-zh="">微软的大模型训练优化库：ZeRO、Offload、混合精度与 MoE 训练，把显存与吞吐压到可用。</span><span data-en="">Microsoft's large-model training library: ZeRO, offload, mixed precision and MoE training to make VRAM and throughput usable.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>43.3k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/deepspeed.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="torchtitan" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="torchtitan pytorch 官方的大模型训练配方：张量并行、流水并行、fsdp 与分布式检查点，按 llama 3 路线给参考实现。 python bsd-3-clause fsdp 并行" data-tier="scale">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh="">规模 / 性能</span><span data-en="">Scale / performance</span></span></div>
+<h3 class="repo-name"><a href="../repos/torchtitan.html">TorchTitan</a></h3>
+<p class="repo-owner">pytorch / torchtitan</p>
+<p><span data-zh="">PyTorch 官方的大模型训练配方：张量并行、流水并行、FSDP 与分布式检查点，按 Llama 3 路线给参考实现。</span><span data-en="">PyTorch's official large-model training recipe: tensor parallelism, pipeline parallelism, FSDP and distributed checkpoints, following the Llama 3 path.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>BSD-3-Clause</dd></div>
+<div><dt>Stars</dt><dd>5.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/torchtitan.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="verl" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="verl 字节跳动的 rl 训练框架：面向 llm agent 与推理任务，支持 ppo/grpo 与多轮工具调用。 python apache-2.0 agentic rl grpo" data-tier="scale">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh="">规模 / 性能</span><span data-en="">Scale / performance</span></span></div>
+<h3 class="repo-name"><a href="../repos/verl.html">verl</a></h3>
+<p class="repo-owner">volcengine / verl</p>
+<p><span data-zh="">字节跳动的 RL 训练框架：面向 LLM Agent 与推理任务，支持 PPO/GRPO 与多轮工具调用。</span><span data-en="">ByteDance's RL training framework for LLM agents and reasoning tasks, with PPO/GRPO and multi-turn tool use.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>24.3k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/verl.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="openrlhf" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="openrlhf 基于 ray + vllm 的 rlhf 训练框架：ppo、grpo、dpo、kto 与多机多卡编排。 python apache-2.0 ray ppo" data-tier="scale">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh="">规模 / 性能</span><span data-en="">Scale / performance</span></span></div>
+<h3 class="repo-name"><a href="../repos/openrlhf.html">OpenRLHF</a></h3>
+<p class="repo-owner">OpenRLHF / OpenRLHF</p>
+<p><span data-zh="">基于 Ray + vLLM 的 RLHF 训练框架：PPO、GRPO、DPO、KTO 与多机多卡编排。</span><span data-en="">A Ray + vLLM RLHF framework: PPO, GRPO, DPO, KTO and multi-node orchestration.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>10.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-03</dd></div>
+</dl>
+<a class="repo-link" href="../repos/openrlhf.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="ktransformers" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="ktransformers 面向异构硬件的推理/微调框架：把 moe 专家卸载到 cpu/内存，用少量 gpu 跑大模型。 python apache-2.0 moe 专家卸载" data-tier="local">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-local"><span data-zh="">本地优先</span><span data-en="">Local-first</span></span></div>
+<h3 class="repo-name"><a href="../repos/ktransformers.html">KTransformers</a></h3>
+<p class="repo-owner">kvcache-ai / ktransformers</p>
+<p><span data-zh="">面向异构硬件的推理/微调框架：把 MoE 专家卸载到 CPU/内存，用少量 GPU 跑大模型。</span><span data-en="">Heterogeneous-hardware inference and fine-tuning: offload MoE experts to CPU/RAM so a small GPU can run large models.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>19.7k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-13</dd></div>
+</dl>
+<a class="repo-link" href="../repos/ktransformers.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="megatron-lm" data-lang="Python" data-license="other" data-scene="training-finetune" data-search="megatron-lm nvidia 的大规模 transformer 训练框架，支持张量/流水/序列/上下文并行、fp8、moe 和分布式 checkpoint。 python cuda bsd-3-clause 分布式训练 moe" data-tier="scale">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-scale"><span data-zh="">规模 / 性能</span><span data-en="">Scale / performance</span></span></div>
+<h3 class="repo-name"><a href="../repos/megatron-lm.html">Megatron-LM</a></h3>
+<p class="repo-owner">NVIDIA / Megatron-LM</p>
+<p><span data-zh="">NVIDIA 的大规模 Transformer 训练框架，支持张量/流水/序列/上下文并行、FP8、MoE 和分布式 checkpoint。</span><span data-en="">NVIDIA’s large-scale Transformer training framework with tensor, pipeline, sequence and context parallelism, FP8, MoE and distributed checkpointing.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>NOASSERTION</dd></div>
+<div><dt>Stars</dt><dd>18.4k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/megatron-lm.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="kohya-ss" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="kohya_ss stable diffusion 系模型的训练 gui 与脚本集合：lora、dreambooth、fine-tune、数据集打标与工具，覆盖 sd1/sdxl/flux 等。 python apache-2.0 lora diffusion 训练" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/kohya-ss.html">kohya_ss</a></h3>
+<p class="repo-owner">bmaltais / kohya_ss</p>
+<p><span data-zh="">Stable Diffusion 系模型的训练 GUI 与脚本集合：LoRA、DreamBooth、fine-tune、数据集打标与工具，覆盖 SD1/SDXL/FLUX 等。</span><span data-en="">A training GUI and script collection for Stable Diffusion models: LoRA, DreamBooth, fine-tuning, dataset tagging and utilities across SD1, SDXL and FLUX.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>12.7k</dd></div>
+<div><dt>最近推送</dt><dd>2026-08-01</dd></div>
+</dl>
+<a class="repo-link" href="../repos/kohya-ss.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="litgpt" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="litgpt lightning ai 的轻量 llm 训练、微调与部署配方：20+ 模型，支持 pretrain、sft、lora、量化与推理，强调单卡可跑与可读代码。 python apache-2.0 llm 微调 单卡" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/litgpt.html">LitGPT</a></h3>
+<p class="repo-owner">Lightning-AI / litgpt</p>
+<p><span data-zh="">Lightning AI 的轻量 LLM 训练、微调与部署配方：20+ 模型，支持 pretrain、SFT、LoRA、量化与推理，强调单卡可跑与可读代码。</span><span data-en="">Lightning AI’s lightweight recipes for LLM training, fine-tuning and deployment: 20+ models, pretraining, SFT, LoRA, quantisation and inference, with an emphasis on single-GPU runs and readable code.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>13.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-10</dd></div>
+</dl>
+<a class="repo-link" href="../repos/litgpt.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="accelerate" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="accelerate 把 pytorch 的多 gpu、tpu、混合精度、梯度累积、fsdp 与 deepspeed 启动样板收进一个 api：设备放置、分布式启动和混合精度不用手写。 python apache-2.0 分布式训练 混合精度" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/accelerate.html">Accelerate</a></h3>
+<p class="repo-owner">huggingface / accelerate</p>
+<p><span data-zh="">把 PyTorch 的多 GPU、TPU、混合精度、梯度累积、FSDP 与 DeepSpeed 启动样板收进一个 API：设备放置、分布式启动和混合精度不用手写。</span><span data-en="">Pulls PyTorch’s multi-GPU, TPU, mixed-precision, gradient-accumulation, FSDP and DeepSpeed boilerplate into one API: device placement, distributed launch and AMP without hand-written scaffolding.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>9.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="../repos/accelerate.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="datasets" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="datasets hugging face 的数据集库：load_dataset 读取 hub、parquet、json、csv，支持流式读取、内存映射、map/filter/shuffle 与 train/test split，不用先把整份语料塞进内存。 python apache-2.0 数据集 流式读取" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/datasets.html">Datasets</a></h3>
+<p class="repo-owner">huggingface / datasets</p>
+<p><span data-zh="">Hugging Face 的数据集库：load_dataset 读取 Hub、Parquet、JSON、CSV，支持流式读取、内存映射、map/filter/shuffle 与 train/test split，不用先把整份语料塞进内存。</span><span data-en="">Hugging Face’s dataset library: load_dataset reads Hub, Parquet, JSON and CSV with streaming, memory mapping, map/filter/shuffle and train/test splits — without loading the whole corpus into RAM.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>22.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="../repos/datasets.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="ray" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="ray 分布式计算框架：把 python 任务与 actor 扩展到多核多机；ray train / serve / data / tune 覆盖训练、推理、数据加载与超参搜索。 python apache-2.0 分布式 ray serve" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/ray.html">Ray</a></h3>
+<p class="repo-owner">ray-project / ray</p>
+<p><span data-zh="">分布式计算框架：把 Python 任务与 actor 扩展到多核多机；Ray Train / Serve / Data / Tune 覆盖训练、推理、数据加载与超参搜索。</span><span data-en="">A distributed compute framework: scale Python tasks and actors across cores and machines; Ray Train / Serve / Data / Tune cover training, serving, data loading and hyperparameter search.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>44.3k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/ray.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="argilla" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="argilla 人机协同的数据标注与 curation 平台：数据集、标注任务、弱监督、模型反馈与 hugging face hub 集成，适合 sft/rlhf 数据。 python apache-2.0 数据标注 rlhf" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/argilla.html">Argilla</a></h3>
+<p class="repo-owner">argilla-io / argilla</p>
+<p><span data-zh="">人机协同的数据标注与 curation 平台：数据集、标注任务、弱监督、模型反馈与 Hugging Face Hub 集成，适合 SFT/RLHF 数据。</span><span data-en="">Human-in-the-loop data annotation and curation: datasets, labeling tasks, weak supervision, model feedback and Hugging Face Hub integration for SFT/RLHF data.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>5.2k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-16</dd></div>
+</dl>
+<a class="repo-link" href="../repos/argilla.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="label-studio" data-lang="Python" data-license="permissive" data-scene="training-finetune" data-search="label studio 多模态数据标注平台：文本、图像、音频、视频、html 与时间序列都能用模板化界面标注；支持 ml 后端预标注、多人协作与多种导出格式。 python apache-2.0 多模态标注 协作" data-tier="prod">
+<div class="repo-top"><span class="badge"><span data-zh="">训练与微调</span><span data-en="">Training &amp; Fine-tuning</span></span><span class="badge tier-prod"><span data-zh="">生产可用</span><span data-en="">Production</span></span></div>
+<h3 class="repo-name"><a href="../repos/label-studio.html">Label Studio</a></h3>
+<p class="repo-owner">HumanSignal / label-studio</p>
+<p><span data-zh="">多模态数据标注平台：文本、图像、音频、视频、HTML 与时间序列都能用模板化界面标注；支持 ML 后端预标注、多人协作与多种导出格式。</span><span data-en="">A multimodal data-labeling platform: text, image, audio, video, HTML and time series with templated interfaces; ML-backend pre-labeling, multi-user collaboration and many export formats.</span></p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>28.7k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="../repos/label-studio.html">看仓库卡 →</a>
 </article></div>
 <div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
 <div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="../repos/unsloth.html">Unsloth</a></th><th><a href="../repos/llamafactory.html">LLaMA-Factory</a></th><th><a href="../repos/axolotl.html">Axolotl</a></th><th><a href="../repos/peft.html">PEFT</a></th><th><a href="../repos/ms-swift.html">ms-swift</a></th><th><a href="../repos/trl.html">TRL</a></th><th><a href="../repos/torchtune.html">torchtune</a></th><th><a href="../repos/deepspeed.html">DeepSpeed</a></th><th><a href="../repos/torchtitan.html">TorchTitan</a></th><th><a href="../repos/verl.html">verl</a></th><th><a href="../repos/openrlhf.html">OpenRLHF</a></th><th><a href="../repos/ktransformers.html">KTransformers</a></th><th><a href="../repos/megatron-lm.html">Megatron-LM</a></th><th><a href="../repos/kohya-ss.html">kohya_ss</a></th><th><a href="../repos/litgpt.html">LitGPT</a></th><th><a href="../repos/accelerate.html">Accelerate</a></th><th><a href="../repos/datasets.html">Datasets</a></th><th><a href="../repos/ray.html">Ray</a></th><th><a href="../repos/argilla.html">Argilla</a></th><th><a href="../repos/label-studio.html">Label Studio</a></th></tr></thead><tbody>
@@ -365,46 +362,46 @@
 <tr><td>不适合</td><td>要做大规模预训练或多机多卡，仍应看 DeepSpeed / TorchTitan。</td><td>要做超大规模预训练或多机极限吞吐，应看 Megatron 系与 TorchTitan。</td><td>不想读 YAML、只想点按钮的人，应先看托管平台。</td><td>需要改变模型知识边界或做大规模继续预训练，单靠适配器不够。</td><td>只在 Hugging Face 生态内工作、且不需要 ModelScope 模型时，依赖会更重。</td><td>只做推理或简单微调，直接用 transformers Trainer 更轻。</td><td>想要开箱 WebUI 与大量现成模型模板，LLaMA-Factory 更省事。</td><td>小模型单卡微调，用不到这么重的分布式栈。</td><td>只想微调一个小模型，直接用 Hugging Face Trainer。</td><td>只做 SFT，不需要这么重的 RL 栈。</td><td>单卡小实验，直接用 TRL 更简单。</td><td>追求通用、稳定的生产推理，优先 vLLM/SGLang。</td><td>单卡或小集群微调；配置和并行调优门槛高，小团队用 torchtune/DeepSpeed 更轻。</td><td>不是一键出图产品；数据清洗、打标与参数调试决定结果。</td><td>不是大规模分布式训练平台；千卡级训练仍用 Megatron/DeepSpeed。</td><td>不是完整训练框架；数据加载、实验管理和评测仍要自己搭。</td><td>不是数据治理平台；许可、PII 与去重仍要自己审。</td><td>不是 Kubernetes 替代；集群运维、网络与存储仍要自己做。</td><td>不是标注外包服务；标注指南与质控仍要自己定。</td><td>开源版与企业版功能不同，商用前读条款。</td></tr>
 </tbody></table></div>
 </div>
-  </main>
-  <footer class="site-footer foot-single">
-    <div class="container foot-line">
-      <div class="foot-brand">
-        <span class="foot-brand-main">
-          <span class="brand-dot" aria-hidden="true"></span>
-          <span class="foot-copy"><span data-zh>投机取巧 · specul.com</span><span data-en>Specul · specul.com</span></span>
-        </span>
-        <span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh>内容 CC BY 4.0</span><span data-en>Content CC BY 4.0</span></a><span class="sep" aria-hidden="true">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh>代码 MIT</span><span data-en>Code MIT</span></a><span class="sep" aria-hidden="true">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" target="_blank" rel="noopener"><span data-zh>源码</span><span data-en>Source</span></a></span>
-      </div>
-      <nav class="foot-sites" aria-label="Footer site links">
-        <a class="site-link" href="https://specul.com/"><span data-zh>首页</span><span data-en>Home</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://learn.specul.com/"><span data-zh>学 AI</span><span data-en>Learn</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://tools.specul.com/"><span data-zh>工具</span><span data-en>Tools</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://models.specul.com/"><span data-zh>模型</span><span data-en>Models</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://demos.specul.com/"><span data-zh>演示</span><span data-en>Demos</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://oss.specul.com/"><span data-zh>开源</span><span data-en>OSS</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://hardware.specul.com/"><span data-zh>算力</span><span data-en>Compute</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://papers.specul.com/"><span data-zh>论文</span><span data-en>Papers</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://chain.specul.com/"><span data-zh>链</span><span data-en>Chain</span></a><span class="sep site-sep" aria-hidden="true">·</span>
-        <a class="site-link" href="https://nav.specul.com/"><span data-zh>导航</span><span data-en>Directory</span></a>
-      </nav>
-      <nav class="foot-legal" aria-label="Legal and corrections">
-        <a href="https://specul.com/legal.html"><span data-zh>法律</span><span data-en>Legal</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/legal.html#s8"><span data-zh>隐私</span><span data-en>Privacy</span></a><span class="sep" aria-hidden="true">·</span>
-        <a href="https://specul.com/correct.html"><span data-zh>纠错</span><span data-en>Corrections</span></a>
-      </nav>
-    </div>
-  </footer>
-<nav class="nav-tabbar nav-tabbar-1row" aria-label="快捷导航">
-    <a href="https://specul.com/"><span class="ti" aria-hidden="true">◎</span><span data-zh>首页</span><span data-en>Home</span></a>
-    <a href="https://learn.specul.com/"><span class="ti" aria-hidden="true">▤</span><span data-zh>学AI</span><span data-en>Learn</span></a>
-    <a href="https://tools.specul.com/"><span class="ti" aria-hidden="true">◈</span><span data-zh>工具</span><span data-en>Tools</span></a>
-    <a href="https://models.specul.com/"><span class="ti" aria-hidden="true">▦</span><span data-zh>模型</span><span data-en>Models</span></a>
-    <a href="https://demos.specul.com/"><span class="ti" aria-hidden="true">▷</span><span data-zh>演示</span><span data-en>Demos</span></a>
-    <a href="https://oss.specul.com/" aria-current="page"><span class="ti" aria-hidden="true">▧</span><span data-zh>开源</span><span data-en>OSS</span></a>
-    <a href="https://hardware.specul.com/"><span class="ti" aria-hidden="true">▣</span><span data-zh>算力</span><span data-en>Chips</span></a>
-    <a href="https://papers.specul.com/"><span class="ti" aria-hidden="true">▥</span><span data-zh>论文</span><span data-en>Papers</span></a>
-    <a href="https://chain.specul.com/"><span class="ti" aria-hidden="true">◇</span><span data-zh>链</span><span data-en>Chain</span></a>
-    <a href="https://nav.specul.com/" data-nav-group="external"><span class="ti" aria-hidden="true">↗</span><span data-zh>导航</span><span data-en>Nav</span></a>
+</main>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy"><span data-zh="">投机取巧 · specul.com</span><span data-en="">Specul · specul.com</span></span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt"><span data-zh="">内容 CC BY 4.0</span><span data-en="">Content CC BY 4.0</span></a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt"><span data-zh="">代码 MIT</span><span data-en="">Code MIT</span></a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank"><span data-zh="">源码</span><span data-en="">Source</span></a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/"><span data-zh="">首页</span><span data-en="">Home</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/"><span data-zh="">学 AI</span><span data-en="">Learn</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/"><span data-zh="">工具</span><span data-en="">Tools</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/"><span data-zh="">模型</span><span data-en="">Models</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/"><span data-zh="">演示</span><span data-en="">Demos</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/"><span data-zh="">开源</span><span data-en="">OSS</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/"><span data-zh="">算力</span><span data-en="">Compute</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/"><span data-zh="">论文</span><span data-en="">Papers</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/"><span data-zh="">链</span><span data-en="">Chain</span></a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/"><span data-zh="">导航</span><span data-en="">Directory</span></a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/legal.html"><span data-zh="">法律</span><span data-en="">Legal</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/legal.html#s8"><span data-zh="">隐私</span><span data-en="">Privacy</span></a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/correct.html"><span data-zh="">纠错</span><span data-en="">Corrections</span></a>
+</nav>
+</div>
+</footer>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a href="https://specul.com/"><span aria-hidden="true" class="ti">◎</span><span data-zh="">首页</span><span data-en="">Home</span></a>
+<a href="https://learn.specul.com/"><span aria-hidden="true" class="ti">▤</span><span data-zh="">学AI</span><span data-en="">Learn</span></a>
+<a href="https://tools.specul.com/"><span aria-hidden="true" class="ti">◈</span><span data-zh="">工具</span><span data-en="">Tools</span></a>
+<a href="https://models.specul.com/"><span aria-hidden="true" class="ti">▦</span><span data-zh="">模型</span><span data-en="">Models</span></a>
+<a href="https://demos.specul.com/"><span aria-hidden="true" class="ti">▷</span><span data-zh="">演示</span><span data-en="">Demos</span></a>
+<a aria-current="page" href="https://oss.specul.com/"><span aria-hidden="true" class="ti">▧</span><span data-zh="">开源</span><span data-en="">OSS</span></a>
+<a href="https://hardware.specul.com/"><span aria-hidden="true" class="ti">▣</span><span data-zh="">算力</span><span data-en="">Chips</span></a>
+<a href="https://papers.specul.com/"><span aria-hidden="true" class="ti">▥</span><span data-zh="">论文</span><span data-en="">Papers</span></a>
+<a href="https://chain.specul.com/"><span aria-hidden="true" class="ti">◇</span><span data-zh="">链</span><span data-en="">Chain</span></a>
+<a data-nav-group="external" href="https://nav.specul.com/"><span aria-hidden="true" class="ti">↗</span><span data-zh="">导航</span><span data-en="">Nav</span></a>
 </nav>
 </body>
 </html>

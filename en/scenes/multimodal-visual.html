@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Multimodal, Image &amp; Video | OSS</title>
+<meta content="Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms." name="description"/>
+<link href="https://oss.specul.com/en/scenes/multimodal-visual.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="OSS" property="og:site_name"/>
+<meta content="https://oss.specul.com/en/scenes/multimodal-visual.html" property="og:url"/>
+<meta content="Multimodal, Image &amp; Video | OSS" property="og:title"/>
+<meta content="Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms." property="og:description"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="zh_CN" property="og:locale:alternate"/>
+<meta content="#16121f" name="theme-color"/>
+<link href="/assets/brand/dandelion-favicon-site.png" rel="icon" type="image/png"/>
+<link href="/assets/brand/dandelion-apple-touch-site.png" rel="apple-touch-icon"/>
+<script src="/brand.js"></script>
+<link href="/brand.css" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<link href="/oss.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Multimodal, Image & Video | OSS","description":"Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms.","url":"https://oss.specul.com/en/scenes/multimodal-visual.html","inLanguage":"en","isPartOf":{"@type":"WebSite","url":"https://oss.specul.com/en/scenes/multimodal-visual.html"}}</script>
+<meta content="Multimodal, Image &amp; Video | OSS" name="twitter:title"/><meta content="Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms." name="twitter:description"/><meta content="noindex,follow" name="robots"/></head>
+<!-- B6（2026-10-09）：--accent 原先在这里被**内联到 body 上**（style="--accent:X"），
+     同时头部又写了 :root{--accent:X} —— 两处同一份值，冗余。
+     而内联样式会**赢过任何选择器**，于是主题级覆盖（html[data-theme="light"]{--accent:…}）
+     完全无效：vg 的引擎名在亮色主题下一直是 1.62:1 的金色，就是因为这条内联。
+     现在只保留头部那一处 —— 单一真相源，且可被主题覆盖。
+     ⚠ 这段注释里**不能出现反引号**：它在模板字符串内部，反引号会提前结束模板
+     （写这段时踩了第 4 次；pitfalls 里早有记录）。 -->
+<body class="brand-ambient has-tabbar has-tabbar-1row">
+<a class="t-skip" href="#main">Skip to main content</a>
+<header class="site-header">
+<div class="container site-bar">
+<a class="brand" href="https://specul.com/en/" title="投机取巧">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="brand-text">
+<span class="brand-name" id="markName">Speculative Speculation</span>
+<span class="brand-sub" id="markSub"></span>
+</span>
+</a>
+<nav aria-label="站点导航" class="nav-links">
+<a href="https://specul.com/en/">Home</a>
+<a href="https://learn.specul.com/en/">Learn</a>
+<a href="https://tools.specul.com/en/">Tools</a>
+<a href="https://models.specul.com/en/">Models</a>
+<a href="https://demos.specul.com/en/">Playground</a>
+<a aria-current="page" href="https://oss.specul.com/en/">OSS</a>
+<a href="https://hardware.specul.com/en/">Compute</a>
+<a href="https://papers.specul.com/en/">AI Papers</a>
+<a href="https://chain.specul.com/en/">Chain</a>
+<a href="https://nav.specul.com/en/">AI Directory</a>
+</nav>
+<!-- 2026-10-10：.nav-tools 从 nav 元素**内部**移到外面，与 .nav-links 平级。
+           放里面时窄屏下它会跟着链接一起换行：链接占满整行 → 按钮被挤到第三条
+           （实测顶栏 134px、按钮组孤零零一行）。移出来后它与品牌同行，
+           链接独占第二行居中 —— 这才是下面注释里方案 B 想要的样子。 -->
+<span class="nav-tools">
+<a aria-label="Search" class="icon-btn" href="https://specul.com/en/search.html" title="Search all sites"><span aria-hidden="true">⌕</span></a>
+<button aria-label="切换明暗主题" class="icon-btn" id="themeBtn" title="切换明暗主题" type="button">☾</button>
+<a aria-label="切换到中文" class="icon-btn" href="/scenes/multimodal-visual.html" hreflang="zh-CN" id="langBtn" lang="zh-CN" title="切换到中文">中文</a>
+</span>
+<!-- B6（2026-10-09）：窄屏（≤900px）下 .nav-links 会隐藏，这个汉堡是替代入口。
+           行为在共享 brand.js 里（一处实现、十站共用），样式在共享 brand.css。
+           无脚本时 CSS 不会显示它，而是把 .nav-links 在窄屏放出来 —— 不会出现
+           「导航被藏进一个点了没反应的按钮」。 -->
+<button aria-controls="navDrawer" aria-expanded="false" aria-label="打开菜单" class="nav-burger" type="button">
+<i></i><i></i><i></i>
+</button>
+</div>
+</header>
+<div class="nav-scrim"></div>
+<aside aria-hidden="true" aria-label="站点导航" class="nav-drawer" id="navDrawer">
+<div class="nav-drawer-h">
+<span class="brand-name">Speculative Speculation</span>
+<span class="brand-sub"></span>
+<button aria-label="关闭" class="nav-dclose" type="button">×</button>
+</div>
+<nav class="nav-drawer-list">
+<a href="https://specul.com/en/"><span>Home</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://learn.specul.com/en/"><span>Learn</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://tools.specul.com/en/"><span>Tools</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://models.specul.com/en/"><span>Models</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://demos.specul.com/en/"><span>Playground</span><span aria-hidden="true" class="ar">→</span></a>
+<a aria-current="page" href="https://oss.specul.com/en/"><span>OSS</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" href="https://hardware.specul.com/en/"><span>Compute</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://papers.specul.com/en/"><span>AI Papers</span><span aria-hidden="true" class="ar">→</span></a>
+<a href="https://chain.specul.com/en/"><span>Chain</span><span aria-hidden="true" class="ar">→</span></a>
+<a class="nav-group-start" data-nav-group="external" href="https://nav.specul.com/en/"><span>AI Directory</span><span aria-hidden="true" class="ar">↗</span></a>
+</nav>
+<div class="nav-drawer-foot">
+<p>Content sites cover learn, use, choose and run; AI Directory is a catalogue of off-site AI sites.</p>
+<nav><a href="https://specul.com/en/legal.html">Legal terms</a></nav>
+</div>
+</aside>
+<main id="main">
+<div class="container">
+<header class="page-head">
+<p class="eyebrow">OSS · Scene 04</p>
+<h1>Multimodal, Image &amp; Video</h1>
+<p class="lede">Generate and edit images or video: check model licence, VRAM, input limits and commercial-use terms.</p>
+</header>
+<div class="hero-actions">
+<a class="btn primary" href="/en/all.html?scene=multimodal-visual">See all in this scene →</a>
+<a class="btn" href="/en/compare.html?ids=comfyui,sd-webui,diffusers">Compare first 3</a>
+<a class="btn" href="../index.html">Home</a>
+</div>
+<div class="stats"><div><b>19</b><span>selected repos</span></div><div><b>For visual content teams that need repeatable pipelines, not one-off prompts.</b><span>Who it is for</span></div></div>
+<div class="section-head"><h2>How to choose</h2></div>
+<div class="note">• Image editing with masks: ComfyUI; video generation: check duration and resolution limits.<br/>• Review output rights and training-data claims before shipping.<br/>• Keep a human review step for faces, text and brand assets.<br/><b>Not for: </b>Do not treat a demo output as a production licence.</div>
+<div class="section-head"><h2>19 repos</h2><span class="sub">Ordered by onboarding, not stars</span></div>
+<div class="repo-grid"><article class="repo-card" data-id="comfyui" data-lang="Python" data-license="strong" data-scene="multimodal-visual" data-search="comfyui 节点式图像/视频生成工作流，把模型、采样、控制网、后处理拼成图。 python gpl-3.0 节点工作流" data-tier="start">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-start">Start here</span></div>
+<h3 class="repo-name"><a href="/en/repos/comfyui.html">ComfyUI</a></h3>
+<p class="repo-owner">comfyanonymous / ComfyUI</p>
+<p>A node-based image and video generation workflow that wires models, samplers, ControlNet and post-processing into a graph.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>GPL-3.0</dd></div>
+<div><dt>Stars</dt><dd>147.5k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/comfyui.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="sd-webui" data-lang="Python" data-license="strong" data-scene="multimodal-visual" data-search="stable diffusion webui 最经典的 sd 图形界面，文生图、图生图、lora、controlnet 都在一个页面。 python agpl-3.0 sd 界面" data-tier="start">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-start">Start here</span></div>
+<h3 class="repo-name"><a href="/en/repos/sd-webui.html">Stable Diffusion WebUI</a></h3>
+<p class="repo-owner">AUTOMATIC1111 / stable-diffusion-webui</p>
+<p>The classic Stable Diffusion web UI: text-to-image, image-to-image, LoRA and ControlNet on one page.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>AGPL-3.0</dd></div>
+<div><dt>Stars</dt><dd>165.3k</dd></div>
+<div><dt>最近推送</dt><dd>2026-03-02</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/sd-webui.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="diffusers" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="diffusers 扩散模型的 python 库：pipeline、调度器、训练与量化，适合写代码而不是点界面。 python apache-2.0 扩散库" data-tier="prod">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/diffusers.html">Diffusers</a></h3>
+<p class="repo-owner">huggingface / diffusers</p>
+<p>A Python library for diffusion models: pipelines, schedulers, training and quantisation, built for code rather than a UI.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>34.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-18</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/diffusers.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="fooocus" data-lang="Python" data-license="strong" data-scene="multimodal-visual" data-search="fooocus 把 sdxl 的常用参数收起来，主打“少调参也能出好图”。 python gpl-3.0 sdxl" data-tier="light">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-light">Lightweight</span></div>
+<h3 class="repo-name"><a href="/en/repos/fooocus.html">Fooocus</a></h3>
+<p class="repo-owner">lllyasviel / Fooocus</p>
+<p>A simplified SDXL interface that hides most parameters and aims at good images with little tuning.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>GPL-3.0</dd></div>
+<div><dt>Stars</dt><dd>54.0k</dd></div>
+<div><dt>最近推送</dt><dd>2025-12-01</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/fooocus.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="invokeai" data-lang="TypeScript" data-license="permissive" data-scene="multimodal-visual" data-search="invokeai 面向创作者的图像生成工作台，统一画布、图层、模型管理与批量生成。 python apache-2.0 创作工作台" data-tier="prod">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/invokeai.html">InvokeAI</a></h3>
+<p class="repo-owner">invoke-ai / InvokeAI</p>
+<p>A creator-oriented image generation workbench with a unified canvas, layers, model management and batch generation.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>TypeScript</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>29.1k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-19</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/invokeai.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="wan21" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="wan2.1 开源视频生成模型与推理代码，支持文生视频、图生视频与多尺寸。 python apache-2.0 视频生成" data-tier="niche">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-niche">Niche</span></div>
+<h3 class="repo-name"><a href="/en/repos/wan21.html">Wan2.1</a></h3>
+<p class="repo-owner">Wan-Video / Wan2.1</p>
+<p>Open-source video generation models and inference code for text-to-video, image-to-video and multiple resolutions.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>17.5k</dd></div>
+<div><dt>最近推送</dt><dd>2026-03-05</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/wan21.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="comfyui-manager" data-lang="Python" data-license="strong" data-scene="multimodal-visual" data-search="comfyui manager comfyui 的扩展与模型管理器：装缺失节点、下载模型、检查版本冲突，还能做环境快照与恢复。 python gpl-3.0 comfyui 扩展" data-tier="light">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-light">Lightweight</span></div>
+<h3 class="repo-name"><a href="/en/repos/comfyui-manager.html">ComfyUI Manager</a></h3>
+<p class="repo-owner">Comfy-Org / ComfyUI-Manager</p>
+<p>An extension and model manager for ComfyUI: install missing nodes, download models, check version conflicts and snapshot or restore an environment.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>GPL-3.0</dd></div>
+<div><dt>Stars</dt><dd>16.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/comfyui-manager.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="sdnext" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="sd.next stable diffusion webui 的现代分支，支持新模型、diffusers/onnx/openvino 多后端，也兼顾 amd 与 intel。 python apache-2.0 sd 分支" data-tier="prod">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/sdnext.html">SD.Next</a></h3>
+<p class="repo-owner">vladmandic / sdnext</p>
+<p>A modern fork of Stable Diffusion WebUI supporting new models, Diffusers/ONNX/OpenVINO backends and AMD or Intel hardware.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>7.4k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-20</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/sdnext.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="real-esrgan" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="real-esrgan 真实场景图像/视频超分与修复：盲超分、降噪、去压缩伪影，提供 python api 与轻量 ncnn 可执行文件。 python bsd-3-clause 超分" data-tier="light">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-light">Lightweight</span></div>
+<h3 class="repo-name"><a href="/en/repos/real-esrgan.html">Real-ESRGAN</a></h3>
+<p class="repo-owner">xinntao / Real-ESRGAN</p>
+<p>Real-world image and video super-resolution and restoration: blind upscaling, denoising and compression-artifact removal, with a Python API and a lightweight ncnn binary.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>BSD-3-Clause</dd></div>
+<div><dt>Stars</dt><dd>37.6k</dd></div>
+<div><dt>最近推送</dt><dd>2024-08-06</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/real-esrgan.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="hunyuanvideo" data-lang="Python" data-license="other" data-scene="multimodal-visual" data-search="hunyuanvideo 腾讯混元的开源视频生成模型与推理代码，支持文本/图像到视频。 python 自定义许可 视频生成" data-tier="niche">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-niche">Niche</span></div>
+<h3 class="repo-name"><a href="/en/repos/hunyuanvideo.html">HunyuanVideo</a></h3>
+<p class="repo-owner">Tencent-Hunyuan / HunyuanVideo</p>
+<p>Tencent Hunyuan’s open video generation models and inference code for text-to-video and image-to-video.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>NOASSERTION</dd></div>
+<div><dt>Stars</dt><dd>12.8k</dd></div>
+<div><dt>最近推送</dt><dd>2026-10-08</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/hunyuanvideo.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="cogvideo" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="cogvideo 智谱 cogvideox 系列视频生成模型与推理代码，支持文本/图像到视频。 python apache-2.0 视频生成" data-tier="prod">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/cogvideo.html">CogVideo</a></h3>
+<p class="repo-owner">zai-org / CogVideo</p>
+<p>Zhipu’s CogVideoX family of video generation models and inference code for text-to-video and image-to-video.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>13.2k</dd></div>
+<div><dt>最近推送</dt><dd>2025-11-04</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/cogvideo.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="ltx-video" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="ltx-video lightricks 的实时视频生成模型与代码，基于 dit，强调速度与较低显存。 python apache-2.0 视频生成" data-tier="niche">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-niche">Niche</span></div>
+<h3 class="repo-name"><a href="/en/repos/ltx-video.html">LTX-Video</a></h3>
+<p class="repo-owner">Lightricks / LTX-Video</p>
+<p>Lightricks’ real-time video generation model and code, based on a DiT and focused on speed and lower VRAM.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>11.4k</dd></div>
+<div><dt>最近推送</dt><dd>2026-11-02</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/ltx-video.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="flux1" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="flux.1 black forest labs 的图像生成模型与推理代码：flux.1 [schnell] / [dev] / [pro] 三条线。 python apache-2.0 图像生成 flux" data-tier="prod">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/flux1.html">FLUX.1</a></h3>
+<p class="repo-owner">black-forest-labs / flux</p>
+<p>Black Forest Labs image-generation models and inference code: FLUX.1 [schnell] / [dev] / [pro].</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>26.1k</dd></div>
+<div><dt>最近推送</dt><dd>2025-07-31</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/flux1.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="open-sora" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="open-sora 开源视频生成全流程：数据清洗、vae、dit 训练、推理，支持文生视频与图生视频。 python apache-2.0 视频生成 dit 训练" data-tier="scale">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-scale">Scale / performance</span></div>
+<h3 class="repo-name"><a href="/en/repos/open-sora.html">Open-Sora</a></h3>
+<p class="repo-owner">hpcaitech / Open-Sora</p>
+<p>A full open video-generation pipeline: data cleaning, VAE, DiT training and inference for text-to-video and image-to-video.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>29.9k</dd></div>
+<div><dt>最近推送</dt><dd>2026-04-09</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/open-sora.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="qwen-image" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="qwen-image qwen 的图像生成与编辑模型，20b mmdit，主打复杂中文文字渲染、海报排版和多图编辑。 python apache-2.0 图像生成 图像编辑 中文文字" data-tier="scale">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-scale">Scale / performance</span></div>
+<h3 class="repo-name"><a href="/en/repos/qwen-image.html">Qwen-Image</a></h3>
+<p class="repo-owner">QwenLM / Qwen-Image</p>
+<p>Qwen’s image generation and editing model, a 20B MMDiT focused on complex Chinese text rendering, poster layout and multi-image editing.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>8.5k</dd></div>
+<div><dt>最近推送</dt><dd>2026-02-10</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/qwen-image.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="framepack" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="framepack 面向低显存的视频生成框架，用下一帧预测和分段生成，把长视频生成压到 6gb 笔记本 gpu 可跑。 python apache-2.0 视频生成 低显存 长视频" data-tier="local">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-local">Local-first</span></div>
+<h3 class="repo-name"><a href="/en/repos/framepack.html">FramePack</a></h3>
+<p class="repo-owner">lllyasviel / FramePack</p>
+<p>A low-VRAM video generation framework using next-frame prediction and segmented generation, aiming at long clips on a 6GB laptop GPU.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>Apache-2.0</dd></div>
+<div><dt>Stars</dt><dd>17.4k</dd></div>
+<div><dt>最近推送</dt><dd>2025-10-16</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/framepack.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="hunyuan3d-2" data-lang="Python" data-license="other" data-scene="multimodal-visual" data-search="hunyuan3d-2 腾讯混元的 3d 生成模型：图/文生 3d mesh，两阶段 shape + texture，支持轻量版与 pbr 纹理。 python 3d 生成 mesh 纹理 腾讯混元" data-tier="scale">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-scale">Scale / performance</span></div>
+<h3 class="repo-name"><a href="/en/repos/hunyuan3d-2.html">Hunyuan3D-2</a></h3>
+<p class="repo-owner">Tencent-Hunyuan / Hunyuan3D-2</p>
+<p>Tencent Hunyuan’s 3D generation model: image or text to a 3D mesh with a two-stage shape and texture pipeline, including a lightweight variant and PBR textures.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>NOASSERTION</dd></div>
+<div><dt>Stars</dt><dd>15.5k</dd></div>
+<div><dt>最近推送</dt><dd>2025-10-28</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/hunyuan3d-2.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="trellis" data-lang="Python" data-license="permissive" data-scene="multimodal-visual" data-search="trellis 微软的 3d 资产生成模型：文本或图片输入，输出辐射场、3d gaussian 与 mesh；核心是 structured latent（slat）统一表示与 rectified flow transformer。 python mit 3d 生成 cvpr 2025" data-tier="prod">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/trellis.html">TRELLIS</a></h3>
+<p class="repo-owner">microsoft / TRELLIS</p>
+<p>Microsoft’s 3D asset generation model: text or image input to a radiance field, 3D Gaussians and a mesh, built on a Structured LATent (SLAT) representation and a Rectified Flow Transformer.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>Python</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>14.4k</dd></div>
+<div><dt>最近推送</dt><dd>2026-10-27</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/trellis.html">看仓库卡 →</a>
+</article><article class="repo-card" data-id="cvat" data-lang="—" data-license="permissive" data-scene="multimodal-visual" data-search="cvat 图像、视频、音频与 3d 数据的标注平台：框、多边形、关键点、轨迹、审核与团队协作都在一套 web 应用里。 python mit 标注 视频 / 3d" data-tier="prod">
+<div class="repo-top"><span class="badge">Multimodal, Image &amp; Video</span><span class="badge tier-prod">Production</span></div>
+<h3 class="repo-name"><a href="/en/repos/cvat.html">CVAT</a></h3>
+<p class="repo-owner">cvat-ai / cvat</p>
+<p>An annotation platform for image, video, audio and 3D data: boxes, polygons, keypoints, tracks, review and team collaboration in one web app.</p>
+<dl class="repo-facts">
+<div><dt>语言</dt><dd>—</dd></div>
+<div><dt>许可</dt><dd>MIT</dd></div>
+<div><dt>Stars</dt><dd>—</dd></div>
+<div><dt>最近推送</dt><dd>—</dd></div>
+</dl>
+<a class="repo-link" href="/en/repos/cvat.html">看仓库卡 →</a>
+</article></div>
+<div class="section-head"><h2>并排看</h2><span class="sub">许可、语言、活跃度、适合 / 不适合</span></div>
+<div class="compare-wrap"><table class="compare-table"><thead><tr><th>字段</th><th><a href="/en/repos/comfyui.html">ComfyUI</a></th><th><a href="/en/repos/sd-webui.html">Stable Diffusion WebUI</a></th><th><a href="/en/repos/diffusers.html">Diffusers</a></th><th><a href="/en/repos/fooocus.html">Fooocus</a></th><th><a href="/en/repos/invokeai.html">InvokeAI</a></th><th><a href="/en/repos/wan21.html">Wan2.1</a></th><th><a href="/en/repos/comfyui-manager.html">ComfyUI Manager</a></th><th><a href="/en/repos/sdnext.html">SD.Next</a></th><th><a href="/en/repos/real-esrgan.html">Real-ESRGAN</a></th><th><a href="/en/repos/hunyuanvideo.html">HunyuanVideo</a></th><th><a href="/en/repos/cogvideo.html">CogVideo</a></th><th><a href="/en/repos/ltx-video.html">LTX-Video</a></th><th><a href="/en/repos/flux1.html">FLUX.1</a></th><th><a href="/en/repos/open-sora.html">Open-Sora</a></th><th><a href="/en/repos/qwen-image.html">Qwen-Image</a></th><th><a href="/en/repos/framepack.html">FramePack</a></th><th><a href="/en/repos/hunyuan3d-2.html">Hunyuan3D-2</a></th><th><a href="/en/repos/trellis.html">TRELLIS</a></th><th><a href="/en/repos/cvat.html">CVAT</a></th></tr></thead><tbody>
+<tr><td>上手层</td><td>先试这个</td><td>先试这个</td><td>生产可用</td><td>轻量</td><td>生产可用</td><td>特定场景</td><td>轻量</td><td>生产可用</td><td>轻量</td><td>特定场景</td><td>生产可用</td><td>特定场景</td><td>生产可用</td><td>规模 / 性能</td><td>规模 / 性能</td><td>本地优先</td><td>规模 / 性能</td><td>生产可用</td><td>生产可用</td></tr>
+<tr><td>语言</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>TypeScript</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>Python</td><td>—</td></tr>
+<tr><td>许可</td><td>GPL-3.0</td><td>AGPL-3.0</td><td>Apache-2.0</td><td>GPL-3.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>GPL-3.0</td><td>Apache-2.0</td><td>BSD-3-Clause</td><td>NOASSERTION</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>Apache-2.0</td><td>NOASSERTION</td><td>MIT</td><td>MIT</td></tr>
+<tr><td>Stars</td><td>147.5k</td><td>165.3k</td><td>34.9k</td><td>54.0k</td><td>29.1k</td><td>17.5k</td><td>16.9k</td><td>7.4k</td><td>37.6k</td><td>12.8k</td><td>13.2k</td><td>11.4k</td><td>26.1k</td><td>29.9k</td><td>8.5k</td><td>17.4k</td><td>15.5k</td><td>14.4k</td><td>—</td></tr>
+<tr><td>最近推送</td><td>2026-11-18</td><td>2026-03-02</td><td>2026-11-18</td><td>2025-12-01</td><td>2026-11-19</td><td>2026-03-05</td><td>2026-11-20</td><td>2026-11-20</td><td>2024-08-06</td><td>2026-10-08</td><td>2025-11-04</td><td>2026-11-02</td><td>2025-07-31</td><td>2026-04-09</td><td>2026-02-10</td><td>2025-10-16</td><td>2025-10-28</td><td>2026-10-27</td><td>—</td></tr>
+<tr><td>适合</td><td>节点图可复用、可分享，复杂工作流表达力强。</td><td>上手直接，参数与插件齐全。</td><td>API 清晰，适合把生成能力嵌进应用。</td><td>界面简单，默认参数就能用。</td><td>画布与图层体验接近设计工具。</td><td>视频生成里少见的开放权重与完整推理代码。</td><td>打开工作流提示缺节点时，能直接搜、装、重启，不用手动克隆。</td><td>新模型跟得快，Flux/SD3 等支持通常比原版 WebUI 早。</td><td>对低清、压缩、噪点图效果稳，模型小、推理快。</td><td>开源权重与推理脚本完整，适合本地实验。</td><td>系列模型尺寸分层，便于按显存选。</td><td>生成速度快，适合做实时/批量草稿。</td><td>开源权重与代码，能本地跑、能微调。</td><td>想自己训练/微调视频 DiT 而不是只调用 API，它提供完整 pipeline 和配置。</td><td>中文海报、电商图、带文字的封面是很多开源图像模型的短板，它在这些任务上有针对性。</td><td>只有 6–8GB 显存却想生成长视频，它的分段与漂移控制是实用路线。</td><td>开源 3D 资产生成里少有的完整 image-to-3D + texture 管线，适合游戏/电商道具原型。</td><td>一个模型支持多种 3D 输出格式，还能做局部编辑，比只出 mesh 的方案灵活。</td><td>视频与 3D 标注是强项：轨迹插值、多视图、审核与质量控制比通用工具细。</td></tr>
+<tr><td>不适合</td><td>只想输入一句话出图，Fooocus 更简单。</td><td>项目已偏维护模式，新功能不如 ComfyUI 快。</td><td>想要现成 UI，ComfyUI / WebUI 更直接。</td><td>需要复杂控制网与批量流水线，ComfyUI 更合适。</td><td>资源占用较高，低配机器吃力。</td><td>显存要求高，不是消费级随手跑。</td><td>会从 GitHub 等来源装第三方代码，来源与权限要自己审。</td><td>插件生态与教程仍不如 AUTOMATIC1111 原版。</td><td>不会凭空生成真实细节，过度放大仍会“塑料感”。</td><td>显存不足 24GB 的单卡用户，先看轻量模型。</td><td>需要实时视频生成；它更偏离线渲染。</td><td>追求电影级长镜头稳定性的场景，仍需更大模型与后期。</td><td>要免费商用，必须看清权重许可；[dev] 通常是非商用。</td><td>只想生成几条短片；训练成本高，推理也吃显存。</td><td>低显存单卡或实时出图；20B 模型推理门槛高，量化后仍需较大显存。</td><td>需要电影级画质或长镜头严格一致性；低显存换来的分辨率和速度有限。</td><td>需要 CAD 级精度或拓扑可编辑的生产资产；生成 mesh 仍需清理和重拓扑。</td><td>生成的是资产草模，拓扑、UV 与材质仍需美术修。</td><td>只标几十张图、没有团队协作与审核需求，Label Studio 更轻。</td></tr>
+</tbody></table></div>
+</div>
+</main>
+<footer class="site-footer foot-single">
+<div class="container foot-line">
+<div class="foot-brand">
+<span class="foot-brand-main">
+<span aria-hidden="true" class="brand-dot"></span>
+<span class="foot-copy">Specul · specul.com</span>
+</span>
+<span class="foot-license"><a href="https://specul.com/LICENSE-CONTENT.txt">Content CC BY 4.0</a><span aria-hidden="true" class="sep">·</span><a href="https://specul.com/LICENSE.txt">Code MIT</a><span aria-hidden="true" class="sep">·</span><a class="foot-source" href="https://github.com/speculcom/ai-handbook" rel="noopener" target="_blank">Source</a></span>
+</div>
+<nav aria-label="Footer site links" class="foot-sites">
+<a class="site-link" href="https://specul.com/en/">Home</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://learn.specul.com/en/">Learn</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://tools.specul.com/en/">Tools</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://models.specul.com/en/">Models</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://demos.specul.com/en/">Demos</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://oss.specul.com/en/">OSS</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://hardware.specul.com/en/">Compute</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://papers.specul.com/en/">Papers</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://chain.specul.com/en/">Chain</a><span aria-hidden="true" class="sep site-sep">·</span>
+<a class="site-link" href="https://nav.specul.com/en/">Directory</a>
+</nav>
+<nav aria-label="Legal and corrections" class="foot-legal">
+<a href="https://specul.com/en/legal.html">Legal</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/legal.html#s8">Privacy</a><span aria-hidden="true" class="sep">·</span>
+<a href="https://specul.com/en/correct.html">Corrections</a>
+</nav>
+</div>
+</footer>
+<nav aria-label="快捷导航" class="nav-tabbar nav-tabbar-1row">
+<a href="https://specul.com/en/"><span aria-hidden="true" class="ti">◎</span>Home</a>
+<a href="https://learn.specul.com/en/"><span aria-hidden="true" class="ti">▤</span>Learn</a>
+<a href="https://tools.specul.com/en/"><span aria-hidden="true" class="ti">◈</span>Tools</a>
+<a href="https://models.specul.com/en/"><span aria-hidden="true" class="ti">▦</span>Models</a>
+<a href="https://demos.specul.com/en/"><span aria-hidden="true" class="ti">▷</span>Demos</a>
+<a aria-current="page" href="https://oss.specul.com/en/"><span aria-hidden="true" class="ti">▧</span>OSS</a>
+<a href="https://hardware.specul.com/en/"><span aria-hidden="true" class="ti">▣</span>Chips</a>
+<a href="https://papers.specul.com/en/"><span aria-hidden="true" class="ti">▥</span>Papers</a>
+<a href="https://chain.specul.com/en/"><span aria-hidden="true" class="ti">◇</span>Chain</a>
+<a data-nav-group="external" href="https://nav.specul.com/en/"><span aria-hidden="true" class="ti">↗</span>Nav</a>
+</nav>
+</body>
+</html>
